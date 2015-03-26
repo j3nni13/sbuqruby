@@ -1,8 +1,9 @@
- <div class="form-cl">
-
  	<div class="row">
  		<h1 class="text-center"><%= link_to image_tag('img/ui-sam.jpg', :class => "img-circle"), "#" %> Dashboard</h1>
- 		
+
+ 		<%= link_to "New Event Type", new_eventtype_path %> | <%= link_to "See All Event Types", eventtypes_path %>
+    <br><%= link_to "New Venue Type", new_venuetype_path %> | <%= link_to "See All Venue Types", venuetypes_path %>
+
  		<div class="col-md-4">
  			<h3 class="text-center">My Listings <%= link_to "New Listing", new_listing_path %> </h3>
  		 <table class="table">
@@ -33,4 +34,3 @@
  				<h3 class="text-center">Sales</h3>
  		</div>
  	</div>
- </div>

@@ -7,8 +7,15 @@ class CreateListings < ActiveRecord::Migration
       t.integer :mincapacity
       t.integer :maxcapacity
       t.string :venuetype
+      t.string :eventtype
       t.integer :price
       t.text :description
+      t.string :amenities
+      t.string :parking
+      t.string :food
+      t.string :alcohol
+      t.string :audiovisual
+      t.string :reception
       
 
       t.timestamps null: false

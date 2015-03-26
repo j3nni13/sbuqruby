@@ -8,6 +8,9 @@
 <p> Venue type: 
 	<%= Venuetype.find(@listing.venuetype).name %>
 </p>
+<p> Event type: 
+	<%= Eventtype.find(@listing.eventtype).name %>
+</p>
 <p> <%= @listing.description %>
 <h4 class="text-center">
 	<%= number_to_currency(@listing.price, :unit => "$") %>
