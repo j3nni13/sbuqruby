@@ -1,8 +1,12 @@
-<%= simple_form_for(@listing, html: {class: "form-signin"}) do |f| %>
+
+<%= simple_form_for(@listing, html: {class: "form-listings"}) do |f| %>
   <%= f.error_notification %>
 
     <%= f.input :title, required: true, label: false, placeholder: "Title", input_html: {class: "form-control"} %>
-    <%= f.input :price, required: true, label: false, placeholder: "Price", input_html: {class: "forn-control"} %>
+    <%= f.input :location, required: true, label: false, placeholder: "Location", input_html: {class: "form-control"} %>
+Venue type: <%= collection_select(:listing, :venuetype, Venuetype.all, :id, :name, :prompt => true, :class => 'customdropdown') %></p>
+<p>
+    <%= f.input :price, required: true, label: false, placeholder: "Price", input_html: {class: "form-control"} %></p>
     <%= f.input :description, required: true, label: false, placeholder: "Description", input_html: {class: "form-control", rows: 9} %>
 <p> Availability</p>
 Calendar will go here

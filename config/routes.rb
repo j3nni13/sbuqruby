@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :venuetypes
+
   resources :listings
 
   devise_for :admins
