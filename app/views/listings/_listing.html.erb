@@ -1,0 +1,19 @@
+<div class="row">
+<div class="col-md-3">
+<div class="thumbnail">
+<%= link_to listing_path(listing) do %>
+<%= image_tag "listing.jpg", class: "img-responsive" %>
+<% end %>
+ 
+<div class="caption">
+
+<ul class="list-inline">
+		<li><strong><%= link_to listing.title, listing_path(listing) %></strong></li>
+		<li><%= number_to_currency(listing.price, :unit => "$") %></li>
+		
+</ul>
+		<%= truncate(listing.description, :ommision => "...", :length => 200) %>
+
+</div>
+</div>
+</div>

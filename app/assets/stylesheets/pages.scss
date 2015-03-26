@@ -9,14 +9,25 @@ body {
 }
 
 .navbar {
-	margin-bottom:10px;
-	border:0px;
-	background:transparent;
+  margin-bottom:10px;
+  border:0px;
+
+}
+
+.navbar-home{
+  margin-bottom:10px;
+  border:0px;
+  background:transparent;
+
+}
+
+.navbar-home a:link, .navbar-home a:visited{
+  color: #fff;
 
 }
 
 .container-fluid a:link, .container-fluid a:visited {
-    color: #fff;
+    color: #000;
 }
 .test-color{ color: #fff; } 
 .test-color:visited{ color: #FFFFFF; } 
