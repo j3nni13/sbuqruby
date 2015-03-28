@@ -21,6 +21,7 @@ class ListingsController < ApplicationController
   # GET /listings/1/edit
   def edit
     @venuetypes = Venuetype.all
+    authorize! :manage, @listing
   end
 
   # POST /listings
@@ -43,7 +44,7 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1.json
   def update
     @listing = Listing.find(params[:id])
-     
+    authorize! :manage, @listing
 
     respond_to do |format|
       if @listing.update(listing_params)
@@ -60,6 +61,7 @@ class ListingsController < ApplicationController
   # DELETE /listings/1.json
   def destroy
     @listing.destroy
+    authorize! :manage, @listing
     respond_to do |format|
       format.html { redirect_to listings_url, notice: 'Listing was successfully destroyed.' }
       format.json { head :no_content }
