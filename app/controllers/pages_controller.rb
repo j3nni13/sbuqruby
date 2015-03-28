@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def adminlistings
-  	 	@listings = current_user.listings
+  	@listings = current_user.listings
   end
 
 end

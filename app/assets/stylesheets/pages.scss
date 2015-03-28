@@ -34,6 +34,29 @@ body {
 .test-color:hover{ color: #CCCCCC; } 
 .test-color:active{ color: #333333; }
 
+/* Truncating */
+.lines-4 {
+  height:5.6em;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.truncate {
+  overflow:hidden;
+  position:relative;
+}
+
+.truncate:after{
+    content:""; 
+    height: 2em; 
+    display: block; 
+    width: 100%; 
+    position:absolute;
+    background-color:white; 
+    opacity: 0.8; 
+    bottom: -0.3em
+}
+
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 

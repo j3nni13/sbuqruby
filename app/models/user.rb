@@ -7,4 +7,10 @@ class User < ActiveRecord::Base
          has_many :listings
          has_many :venuetypes, :through => :listings
          has_many :eventtypes, :through => :listings
-end
+     end
+     def admin?
+     	admin
+     end
+
+
+

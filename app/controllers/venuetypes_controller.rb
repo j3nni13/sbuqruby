@@ -1,6 +1,6 @@
 class VenuetypesController < ApplicationController
   before_action :set_venuetype, only: [:show, :edit, :update, :destroy]
-
+  authorize_resource :class => false
   # GET /venuetypes
   # GET /venuetypes.json
   def index
