@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20150326224949) do
   create_table "listings", force: :cascade do |t|
     t.string   "title"
     t.string   "location"
+    t.string   "contactname"
+    t.string   "contacttitle"
+    t.string   "phonenumber"
+    t.string   "email"
     t.integer  "mincapacity"
     t.integer  "maxcapacity"
     t.string   "venuetype"
@@ -52,8 +56,8 @@ ActiveRecord::Schema.define(version: 20150326224949) do
     t.string   "alcohol"
     t.string   "audiovisual"
     t.string   "reception"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.integer  "user_id"
   end
 

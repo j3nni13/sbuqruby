@@ -4,6 +4,10 @@ class CreateListings < ActiveRecord::Migration
     create_table :listings do |t|
       t.string :title
       t.string :location
+      t.string :contactname
+      t.string :contacttitle
+      t.string :phonenumber
+      t.string :email
       t.integer :mincapacity
       t.integer :maxcapacity
       t.string :venuetype

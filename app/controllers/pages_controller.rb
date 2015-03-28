@@ -8,4 +8,8 @@ class PagesController < ApplicationController
   	@listings = current_user.listings
   end
 
+  def adminlistings
+  	 	@listings = current_user.listings
+  end
+
 end

@@ -2,13 +2,21 @@
 <%= simple_form_for(@listing, html: {class: "form-listings"}) do |f| %>
   <%= f.error_notification %>
 
-    <%= f.input :title, required: true, label: false, placeholder: "Title", input_html: {class: "form-control"} %>
+    <h3 class="text-center">Contact Information</h3>
+     <%= f.input :contactname, required: false, label: false, placeholder: "Name of Contact", input_html: {class: "form-control"} %>
+     <%= f.input :contacttitle, required: false, label: false, placeholder: "Title of Contact", input_html: {class: "form-control"} %>
+     <%= f.input :phonenumber, required: true, label: false, placeholder: "Phone Number", input_html: {class: "form-control"} %>
+     <%= f.input :email, required: true, label: false, placeholder: "E-mail", input_html: {class: "form-control"} %>
+
+     <h3 class="text-center">Venue Details</h3>
+    <%= f.input :title, required: true, label: false, placeholder: "Title of Venue", input_html: {class: "form-control"} %>
     <%= f.input :location, required: true, label: false, placeholder: "Location", input_html: {class: "form-control"} %>
     <p>
 Venue type: <%= collection_select(:listing, :venuetype, Venuetype.all, :id, :name, :prompt => true, :class => 'customdropdown') %></p>
     <p>
 Event type: <%= collection_select(:listing, :eventtype, Eventtype.all, :id, :name, :prompt => true, :class => 'customdropdown') %></p>
-<p>
+	<%= f.input :mincapacity, required: true, label: false, placeholder: "Minimum Capacity", input_html: {class: "form-control"} %>
+	<%= f.input :maxcapacity, required: true, label: false, placeholder: "Maximum Capacity", input_html: {class: "form-control"} %>
     <%= f.input :price, required: true, label: false, placeholder: "Price", input_html: {class: "form-control"} %></p>
     <%= f.input :description, required: true, label: false, placeholder: "Description", input_html: {class: "form-control", rows: 9} %>
 <p> Availability</p>
