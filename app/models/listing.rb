@@ -3,4 +3,12 @@ class Listing < ActiveRecord::Base
 	has_and_belongs_to_many :venuetypes
 	has_and_belongs_to_many :eventtypes
 	has_attached_file :image
+
+	validates_attachment_content_type :image, 
+	content_type:  /^image\/(png|gif|jpeg)/,
+	message: "Only images allowed"
+
+# If requires image validation:
+# validates :image, attachment_presence: true
+
 end

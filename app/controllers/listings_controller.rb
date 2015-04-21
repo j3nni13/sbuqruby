@@ -10,6 +10,7 @@ class ListingsController < ApplicationController
   # GET /listings/1
   # GET /listings/1.json
   def show
+    @listings = Listing.all
   end
 
   # GET /listings/new
@@ -76,7 +77,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:title, :contactname, :contacttitle, :phonenumber, :email, :mincapacity, :maxcapacity, :venuetype, :eventtype, :location, :price, :description, :image)
+      params.require(:listing).permit(:title, :contactname, :contacttitle, :phonenumber, :email, :mincapacity, :maxcapacity, :eventtype, :location, :price, :description, :image, venuetype_ids: [], eventtype_ids: [])
     end
 
     def show_venuetypes

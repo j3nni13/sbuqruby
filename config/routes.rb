@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :eventtypes
-
   resources :venuetypes
-
   resources :listings
 
   devise_for :admins
@@ -10,7 +9,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'dashboard' => "pages#dashboard"
-  get 'adminlistings' => "pages#adminlistings"
+  get 'dminlistings' => "pages#dminlistings"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

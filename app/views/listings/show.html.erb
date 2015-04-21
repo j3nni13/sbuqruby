@@ -6,11 +6,16 @@
 <h3> <%= @listing.title %></h3>
 <p> <%= @listing.location %></p>
 
-<p> Venue type: 
-	<%= Venuetype.find(@listing.venuetype).name %></p>
+<p> <b>Venue type(s):</b><br>
 
-<p> Event type: 
-	<%= Eventtype.find(@listing.eventtype).name %></p>
+	<% @listing.venuetypes.each do |cat| %>
+ 	 <%= cat.name %><br>
+	<% end %>
+
+<p> <b>Event type(s): </b><br>
+	<% @listing.eventtypes.each do |cat| %>
+ 	 <%= cat.name %><br>
+	<% end %>
 
 <p>Min Capacity: <%= @listing.mincapacity %></p>
 <p>Max Capacity: <%= @listing.maxcapacity %></p>
