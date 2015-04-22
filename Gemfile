@@ -48,6 +48,8 @@ group :development, :test do
   gem 'paperclip'
   gem 'dotenv-rails', groups: [:development]
   gem 'rails_admin'
-
+  gem 'sunspot_rails'
+  gem 'sunspot_solr'
+  gem 'geocoder'
 end
 

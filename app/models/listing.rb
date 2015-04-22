@@ -11,4 +11,7 @@ class Listing < ActiveRecord::Base
 # If requires image validation:
 # validates :image, attachment_presence: true
 
+	geocoded_by :location
+	after_validation :geocode
+
 end
