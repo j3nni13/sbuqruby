@@ -4,7 +4,13 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
   def index
-    @listings = Listing.all
+    @search = Listing.search(params[:q])
+    @listings = @search.result
+  end
+
+  def search
+    index
+    render :index
   end
 
   # GET /listings/1

@@ -14,4 +14,9 @@ class Listing < ActiveRecord::Base
 	geocoded_by :location
 	after_validation :geocode
 
+	 def index
+    @search = Listing.search(params[:q])
+    @listings = @search.result
+end
+   
 end

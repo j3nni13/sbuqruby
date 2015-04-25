@@ -10,7 +10,7 @@
 
      <h3 class="text-center">Venue Details</h3>
     <%= f.input :title, required: true, label: false, placeholder: "Title of Venue", input_html: {class: "form-control"} %>
-    <%= f.input :location, required: true, label: false, placeholder: "Location", input_html: {class: "form-control"} %>
+    <%= f.input :location, required: true, label: false, placeholder: "Address", input_html: {class: "form-control"} %>
     <p>
 Venue type: 
 <%= f.select :venuetype_ids, Venuetype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %>
