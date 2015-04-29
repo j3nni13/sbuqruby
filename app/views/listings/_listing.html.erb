@@ -4,9 +4,19 @@
 <%= image_tag "listing.jpg", class: "img-responsive" %>
 <% end %>
 <div class="caption">
-		<p><strong><%= link_to listing.title, listing_path(listing) %></strong><p>
-		<p><%= number_to_currency(listing.price, :unit => "$") %></p>
-		<p class="truncate lines-4"><%= truncate(listing.description, :ommision => "...", :length => 150) %></p>
+		<p><h5><%= link_to listing.title, listing_path(listing) %></h5><p>
+			<p><% listing.venuetypes.each do |vt| %>
+ 	 <%= vt.name %><%= '/' unless vt == listing.venuetypes.last %>
+	<% end %>
+
+	- <%= listing.location %>
+</p>
+
+		<!-- PRICE: <p><%= number_to_currency(listing.price, :unit => "$") %></p>
+	-->
+		
+		<!-- DESCRIPTION: <p class="truncate lines-4"><%= truncate(listing.description, :ommision => "...", :length => 150) %></p>
+	-->
 </div>
 </div>
 </div>

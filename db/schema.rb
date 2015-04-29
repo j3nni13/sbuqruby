@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422054705) do
+ActiveRecord::Schema.define(version: 20150425171925) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -76,6 +76,15 @@ ActiveRecord::Schema.define(version: 20150422054705) do
     t.float    "longitude"
   end
 
+  create_table "listings_parkings", force: :cascade do |t|
+    t.integer  "parkings_id"
+    t.integer  "listings_id"
+    t.integer  "parking_id"
+    t.integer  "listing_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
   create_table "listings_venuetypes", force: :cascade do |t|
     t.integer  "venuetypes_id"
     t.integer  "listings_id"
@@ -83,6 +92,12 @@ ActiveRecord::Schema.define(version: 20150422054705) do
     t.integer  "listing_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "parkings", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

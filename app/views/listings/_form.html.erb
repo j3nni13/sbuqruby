@@ -2,22 +2,23 @@
 <%= simple_form_for(@listing, html: {class: "form-listings"}) do |f| %>
   <%= f.error_notification %>
 
-    <h3 class="text-center">Contact Information</h3>
+    <h4 class="text-center">Contact Information</h4>
      <%= f.input :contactname, required: false, label: false, placeholder: "Name of Contact", input_html: {class: "form-control"} %>
      <%= f.input :contacttitle, required: false, label: false, placeholder: "Title of Contact", input_html: {class: "form-control"} %>
      <%= f.input :phonenumber, required: true, label: false, placeholder: "Phone Number", input_html: {class: "form-control"} %>
      <%= f.input :email, required: true, label: false, placeholder: "E-mail", input_html: {class: "form-control"} %>
 
-     <h3 class="text-center">Venue Details</h3>
+     <h4 class="text-center">Venue Details</h4>
     <%= f.input :title, required: true, label: false, placeholder: "Title of Venue", input_html: {class: "form-control"} %>
     <%= f.input :location, required: true, label: false, placeholder: "Address", input_html: {class: "form-control"} %>
     <p>
-Venue type: 
+Venue type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
 <%= f.select :venuetype_ids, Venuetype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %>
 </p>
 
     <p>
-Event type: <%= f.select :eventtype_ids, Eventtype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %></p>
+Event type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
+ <%= f.select :eventtype_ids, Eventtype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %></p>
 
 
 	<%= f.input :mincapacity, required: true, label: false, placeholder: "Minimum Capacity", input_html: {class: "form-control"} %>
@@ -25,8 +26,17 @@ Event type: <%= f.select :eventtype_ids, Eventtype.all.collect {|x| [x.name, x.i
     <%= f.input :price, required: true, label: false, placeholder: "Price", input_html: {class: "form-control"} %></p>
     <%= f.input :image %>
     <%= f.input :description, required: true, label: false, placeholder: "Description", input_html: {class: "form-control", rows: 9} %>
-<p> Availability</p>
+    <br>
+<p><h4 class="text-center"> Parking</h4></p>
+    <%= hidden_field_tag "listing[parking_ids][]", nil %>
+<% Parking.all.each do |parking| %>
+  <%= check_box_tag "listing[parking_ids][]", parking.id, @listing.parking_ids.include?(parking.id), id: dom_id(parking) %>
+  <%= label_tag dom_id(parking), parking.name %><br>
+<% end %> 
+<Br>
+<!--- <p> Availability</p>
 Calendar will go here
+-->
 
     <%= f.button :submit, class: "btn btn-primary btn-block" %>
 

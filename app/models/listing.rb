@@ -2,6 +2,7 @@ class Listing < ActiveRecord::Base
 	belongs_to :user
 	has_and_belongs_to_many :venuetypes
 	has_and_belongs_to_many :eventtypes
+	has_and_belongs_to_many :parkings
 	has_attached_file :image
 
 	validates_attachment_content_type :image, 
@@ -19,4 +20,9 @@ class Listing < ActiveRecord::Base
     @listings = @search.result
 end
    
+   rails_admin do
+    list do
+      exclude_fields :eventtype, :venuetype
+    end
+   end
 end

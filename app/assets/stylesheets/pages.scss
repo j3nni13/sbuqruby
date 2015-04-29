@@ -4,8 +4,14 @@
 /* BOOTSTRAP 3.x GLOBAL STYLES
 -------------------------------------------------- */
 body {
+  margin-top:70px;
   padding-bottom: 40px;
   color: #5a5a5a;
+  background-color: #fff;
+  color: #333;
+  font-family: 'Lora' serif;
+  font-size: 13px;
+  line-height: 18px;
 }
 
 h1 {
@@ -37,12 +43,11 @@ h4 {
   letter-spacing: 1px;
 }
 
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: 'Lora' serif;
-  font-size: 13px;
-  line-height: 18px;
+h5 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 p, ol, ul, td {
@@ -220,7 +225,7 @@ div {
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 630px;
+  height: 560px;
   background-color:#555;
 }
  .carousel img {

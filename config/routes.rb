@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'dashboard' => "pages#dashboard"
-  get 'dminlistings' => "pages#dminlistings"
+  get 'search' => "listings#search"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

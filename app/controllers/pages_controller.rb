@@ -13,4 +13,18 @@ class PagesController < ApplicationController
   	@listings = current_user.listings
   end
 
+def index
+   @search = Listing.search(params[:q])
+   @listings  = @search.result 
+   
+end
+  
+private
+    def search
+      if params[:q]
+        search_params = CGI::escapeHTML(params[:q]) 
+        redirect_to ("/listings")
+      end
+    end  
+    
 end

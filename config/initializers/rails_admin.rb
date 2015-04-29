@@ -1,5 +1,14 @@
 RailsAdmin.config do |config|
 
+config.included_models = [ "User", "Admin", "Listing", "Eventtype", "Venuetype", "Parking" ]
+
+## Listings Model Config
+
+config.model 'Listing' do
+    list do
+      exclude_fields :eventtype, :venuetype
+    end
+  end
   ### Popular gems integration
 
   ## == Devise ==
