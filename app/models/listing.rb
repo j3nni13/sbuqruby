@@ -1,4 +1,5 @@
 class Listing < ActiveRecord::Base
+
 	belongs_to :user
 	has_and_belongs_to_many :venuetypes
 	has_and_belongs_to_many :eventtypes
@@ -12,7 +13,11 @@ class Listing < ActiveRecord::Base
 # If requires image validation:
 # validates :image, attachment_presence: true
 
-	geocoded_by :location
+	def address
+  [street, street2, city, province, country].compact.reject(&:blank?).join(', ')
+	end
+	
+	geocoded_by :address
 	after_validation :geocode
 
 	 def index

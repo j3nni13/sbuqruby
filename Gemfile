@@ -49,6 +49,7 @@ group :development, :test do
   gem 'dotenv-rails', groups: [:development]
   gem 'rails_admin'
   gem 'geocoder'
+  gem 'country_select'
   gem 'ransack'
 end
 

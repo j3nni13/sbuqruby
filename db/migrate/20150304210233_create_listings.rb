@@ -3,7 +3,12 @@ class CreateListings < ActiveRecord::Migration
   def change
     create_table :listings do |t|
       t.string :title
-      t.string :location
+      t.string :street
+      t.string :street2
+      t.string :city
+      t.string :province
+      t.string :country
+      t.string :postalcode
       t.string :contactname
       t.string :contacttitle
       t.string :phonenumber

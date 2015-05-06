@@ -5,7 +5,7 @@
   <%= search_form_for @q, url: search_listings_path, html: { method: :post } do |f| %>
     
     <%= f.collection_select :eventtypes_id_eq, Eventtype.order(:name), :id, :name, { :prompt => "Event type" }, {class: "form-control"} %>
-    <%= f.text_field :location_cont, label: false, placeholder: "Location", class: "form-control" %>
+    <%= f.text_field :city_or_province_or_country_cont, label: false, placeholder: "Location", class: "form-control" %>
         <%= f.search_field :mincapacity_gteq, label: false, maxlength: 10, placeholder: "Min People", class: "form-control" %>
         <%= f.search_field :maxcapacity_lteq, label: false, maxlength: 10,  placeholder: "Max People", class: "form-control" %>
         <span class="input-group-btn">

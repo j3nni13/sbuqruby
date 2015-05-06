@@ -12,6 +12,7 @@ body {
   font-family: 'Lora' serif;
   font-size: 13px;
   line-height: 18px;
+
 }
 
 h1 {
@@ -221,6 +222,7 @@ div {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 1;
+  letter-spacing: 2px;
 }
 
 /* Declare heights because of positioning of img element */

@@ -9,7 +9,7 @@
  	 <%= vt.name %><%= '/' unless vt == listing.venuetypes.last %>
 	<% end %>
 
-	- <%= listing.location %>
+	- <%= listing.city %>, <%= listing.province %>
 </p>
 
 		<!-- PRICE: <p><%= number_to_currency(listing.price, :unit => "$") %></p>

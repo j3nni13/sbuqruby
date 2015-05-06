@@ -10,7 +10,13 @@
 
      <h4 class="text-center">Venue Details</h4>
     <%= f.input :title, required: true, label: false, placeholder: "Title of Venue", input_html: {class: "form-control"} %>
-    <%= f.input :location, required: true, label: false, placeholder: "Address", input_html: {class: "form-control"} %>
+    <%= f.input :street, required: true, label: false, placeholder: "Address", input_html: {class: "form-control"} %>
+    <%= f.input :street2, required: false, label: false, placeholder: "Optional: Apt/Suite/etc", input_html: {class: "form-control"} %>
+    <%= f.input :city, required: true, label: false, placeholder: "City", input_html: {class: "form-control"} %>
+    <%= f.input :province, required: true, label: false, placeholder: "Province", input_html: {class: "form-control"} %>
+     <%= f.input :country, priority: ['CA', 'US'], required: true, label: false, placeholder: "Country", input_html: {class: "form-control"} %>
+    <%= f.input :postalcode, required: true, label: false, placeholder: "Postal Code", input_html: {class: "form-control"} %>
+
     <p>
 Venue type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
 <%= f.select :venuetype_ids, Venuetype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %>

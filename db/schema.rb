@@ -48,7 +48,12 @@ ActiveRecord::Schema.define(version: 20150425171925) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "title"
-    t.string   "location"
+    t.string   "street"
+    t.string   "street2"
+    t.string   "city"
+    t.string   "province"
+    t.string   "country"
+    t.string   "postalcode"
     t.string   "contactname"
     t.string   "contacttitle"
     t.string   "phonenumber"

@@ -83,7 +83,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:title, :contactname, :contacttitle, :phonenumber, :email, :mincapacity, :maxcapacity, :eventtype, :location, :price, :description, :image, venuetype_ids: [], eventtype_ids: [], parking_ids: [])
+      params.require(:listing).permit(:title, :contactname, :contacttitle, :phonenumber, :email, :mincapacity, :maxcapacity, :eventtype, :street, :street2, :city, :province, :country, :postalcode, :location, :price, :description, :image, venuetype_ids: [], eventtype_ids: [], parking_ids: [],)
     end
 
     def show_venuetypes
