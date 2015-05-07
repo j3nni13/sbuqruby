@@ -72,6 +72,6 @@ class ParkingsController < ApplicationController
     def parking_params
       params.require(:parking).permit(:name)
     end
-end
+
 
 end
