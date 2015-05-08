@@ -22,7 +22,7 @@ class Listing < ActiveRecord::Base
 
 	 def index
     @search = Listing.search(params[:q])
-    @listings = @search.result
+    @listings = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 40) if params[:q]
 end
    
    rails_admin do

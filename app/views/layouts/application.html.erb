@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Sbuqruby</title>
+  <title>Book venues for birthdays, anniversaries, parties, and events in Hamilton - SPACEbuq</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -31,6 +31,8 @@
 
 <%= yield %>
 </div>
+  <%= render "layouts/footer" unless current_page?(dashboard_path) %>
+
 </div>
 </body>
 </html>

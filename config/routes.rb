@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   get 'dashboard' => "pages#dashboard"
   get 'search' => "listings#search"
+  get 'faq' => "pages#faq"
+  get 'howitworks' => "pages#howitworks"
+  get 'aboutus' => "pages#aboutus"
+  get 'fees' => "pages#fees"
 
 
   # The priority is based upon order of creation: first created -> highest priority.

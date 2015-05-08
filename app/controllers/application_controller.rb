@@ -12,5 +12,5 @@ class ApplicationController < ActionController::Base
 		@q = Listing.search(params[:q])
 	end
 
-  
+
 end

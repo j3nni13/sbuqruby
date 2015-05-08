@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   # GET /listings.json
   def index
     @search = Listing.search(params[:q])
-    @listings = @search.result
+    @listings = @search.result(distinct: true).page(params[:page]).per(24)
   end
 
   def search

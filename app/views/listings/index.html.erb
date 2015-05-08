@@ -1,8 +1,13 @@
+<div class="container-marketing">
 <div class="row">
 	<p><h2>Search </h2></p>
-	<p><%= render "listings/search" %></p>
+	<p><%= render "listings/searchlistings" %></p>
 </div>
 
-<div class="row">
+<div class="col-md-8">
 <%= render @listings %>
+</div>
+<div class="col-md-4">
+Map
+</div>
 </div>
