@@ -1,11 +1,15 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!, :set_listing, only: [:show, :edit, :update, :destroy]
-
   # GET /listings
   # GET /listings.json
   def index
     @search = Listing.search(params[:q])
     @listings = @search.result(distinct: true).page(params[:page]).per(24)
+    @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
+    marker.lat listing.latitude
+    marker.lng listing.longitude
+    marker.infowindow render_to_string(:partial => 'listings/mappopup', :layout => false, :locals => {:@listing => listing})
+  end
   end
 
   def search

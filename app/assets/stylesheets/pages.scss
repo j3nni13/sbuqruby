@@ -358,6 +358,17 @@ color: #fff;
   width:100%;
 }
 
+/* Listings Results Map
+-------------------------------------------------- */
+.infowindow {
+font-family: 'Lato', sans-serif;
+   padding: 20px;
+   color: #000;
+   margin: 1px;
+   border-radius: 2px 2px 0 0;  
+}
+
+
 
 /* About
 -------------------------------------------------- */
@@ -376,6 +387,13 @@ color: #fff;
   margin-left: 50px;
   margin-right: 50px;
 }
+
+#resultsmap img { 
+  max-width: none;
+}
+#resultsmap label { 
+  width: auto; display:inline; 
+} 
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
@@ -532,10 +550,14 @@ color: #fff;
   color: #EDEFF1 !important;
 }
 .footer-bottom {
-  background: #E3E3E3;
+  background: #DDDDDD;
+  width: 100%;
+  height: auto;
   border-top: 1px solid #DDDDDD;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 .footer-bottom p.pull-left {
   padding-top: 6px;

@@ -49,7 +49,7 @@
   <div class="row">
     <div class="col-md-4 text-center">
       <div class="fmodule1">
-        <%= link_to(listings_path) do %>
+        <%= link_to listings_path(:q => {:city_or_province_or_country_cont => "Hamilton"}) do %>
       <h2>Hamilton Venues</h2>
       <br>Find a Venue in Hamilton.</br>
       <% end %>
@@ -57,7 +57,7 @@
   </div>
     <div class="col-md-4 text-center">
         <div class="fmodule2">
-      <%= link_to(listings_path) do %>
+      <%= link_to listings_path(:q => {:eventtypes_name_cont => "party"}) do %>
       <h2>Party Spaces</h2>
       <br>Find a cool space for your party.</br>
       <% end %>
@@ -65,9 +65,9 @@
     </div>
     <div class="col-md-4 text-center">
         <div class="fmodule3">
-      <%= link_to(listings_path) do %>
+      <%= link_to listings_path(:q => {:eventtypes_name_cont => "conference"}) do %>
       <h2>Conference Rooms</h2>
-      <br>Find your next meeing space.</br>
+      <br>Find your next meeting space.</br>
       <% end %>
     </div>
     </div>
