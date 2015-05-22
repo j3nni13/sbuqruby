@@ -2,6 +2,9 @@ class ListingsController < ApplicationController
   before_action :authenticate_user!, :set_listing, only: [:show, :edit, :update, :destroy]
   # GET /listings
   # GET /listings.json
+
+  layout 'nofoot', :only => [:index]
+
   def index
     @search = Listing.search(params[:q])
     @listings = @search.result(distinct: true).page(params[:page]).per(24)

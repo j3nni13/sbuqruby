@@ -1,6 +1,7 @@
-<div class="row" style="width: 250px">
+<div class="container" style="width: 250px">
 	<div class="infowindow">
-           <b><%= @listing.title %></b>
+		<br><%= image_tag @listing.image.url, width: 280, height: 100, class: "img-responsive" %>
+           <h1><%= @listing.title %></h1>
            <br><%= @listing.address %>
            <br>
 

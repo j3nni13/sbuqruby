@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Book venues for birthdays, anniversaries, parties, and events in Hamilton - SPACEbuq</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+  <!-- Google font -->
+  <link href='http://fonts.googleapis.com/css?family=Lora|Nunito:400,300' rel='stylesheet' type='text/css'>
+
+   <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTP8Oxu87vYZLdRAgmahs4eIHf79tAkX0">
+    </script>
+
+</head>
+<body>
+<%= render "layouts/header" %>
+ <div class="form-cl">
+<div class="container">
+
+<!-- messages
+	<% flash.each do |type, message| %>
+<div class="alert alert-info fade-in">
+<button class="close" data-dismiss="alert">x</button>
+<%= message %>
+</div>
+<% end %>
+-->
+
+<%= yield %>
+</div>
+
+</div>
+
+</body>
+</html>

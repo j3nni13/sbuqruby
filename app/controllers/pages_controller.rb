@@ -1,9 +1,6 @@
 class PagesController < ApplicationController
 	before_action :authenticate_user!, only: [:dashboard]
-  def home
-    render :layout => 'home'
-  end
-  	
+
 
   def dashboard
   	@listings = current_user.listings
