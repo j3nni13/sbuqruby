@@ -38,6 +38,26 @@
  <br> <% @listing.parkings.each do |cat| %>
    <%= cat.name %><br>
    <% end %>
+   <br>
+     <h3>Amenities:</h3>
+ <br> <% @listing.amenities.each do |cat| %>
+   <%= cat.name %><br>
+   <% end %>
+   <br>
+     <h3>Food:</h3>
+ <br> <% @listing.foods.each do |cat| %>
+   <%= cat.name %><br>
+   <% end %>
+   <br>
+     <h3>Alcohol:</h3>
+ <br> <% @listing.alcohols.each do |cat| %>
+   <%= cat.name %><br>
+   <% end %>
+   <br>
+     <h3>Reception:</h3>
+ <br> <% @listing.receptions.each do |cat| %>
+   <%= cat.name %><br>
+   <% end %>
 </p>
 <p><h4 class="text-center">
 	<%= number_to_currency(@listing.price, :unit => "$") %>

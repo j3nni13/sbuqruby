@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :receptions
+
+  resources :alcohols
+
+  resources :foods
+
+  resources :amenities
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :eventtypes
   resources :venuetypes

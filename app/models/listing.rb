@@ -4,6 +4,10 @@ class Listing < ActiveRecord::Base
 	has_and_belongs_to_many :venuetypes
 	has_and_belongs_to_many :eventtypes
 	has_and_belongs_to_many :parkings
+	has_and_belongs_to_many :amenities
+	has_and_belongs_to_many :foods
+	has_and_belongs_to_many :alcohols
+	has_and_belongs_to_many :receptions
 
 	# Paperclip
 	has_attached_file :image, styles: { 
@@ -35,7 +39,7 @@ end
    
    rails_admin do
     list do
-      exclude_fields :eventtype, :venuetype
+      exclude_fields :eventtype, :venuetype, :amenity
     end
    end
 end

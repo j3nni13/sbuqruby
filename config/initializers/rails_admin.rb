@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
 
-config.included_models = [ "User", "Admin", "Listing", "Eventtype", "Venuetype", "Parking" ]
+config.included_models = [ "User", "Admin", "Listing", "Eventtype", "Venuetype", "Parking", "Amenity", "Food", "Reception", "Alcohol" ]
 
 ## Listings Model Config
 

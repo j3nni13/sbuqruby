@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150425171925) do
+ActiveRecord::Schema.define(version: 20150531213244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,36 @@ ActiveRecord::Schema.define(version: 20150425171925) do
     t.datetime "updated_at"
   end
 
+  create_table "alcohols", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "alcohols_listings", force: :cascade do |t|
+    t.integer  "alcohols_id"
+    t.integer  "listings_id"
+    t.integer  "alcohol_id"
+    t.integer  "listing_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "amenities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "amenities_listings", force: :cascade do |t|
+    t.integer  "amenities_id"
+    t.integer  "listings_id"
+    t.integer  "amenity_id"
+    t.integer  "listing_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "eventtypes", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -43,6 +73,21 @@ ActiveRecord::Schema.define(version: 20150425171925) do
     t.integer  "listing_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+  end
+
+  create_table "foods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "foods_listings", force: :cascade do |t|
+    t.integer  "foods_id"
+    t.integer  "listings_id"
+    t.integer  "food_id"
+    t.integer  "listing_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "listings", force: :cascade do |t|
@@ -89,6 +134,15 @@ ActiveRecord::Schema.define(version: 20150425171925) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "listings_receptions", force: :cascade do |t|
+    t.integer  "receptions_id"
+    t.integer  "listings_id"
+    t.integer  "reception_id"
+    t.integer  "listing_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
   create_table "listings_venuetypes", force: :cascade do |t|
     t.integer  "venuetypes_id"
     t.integer  "listings_id"
@@ -99,6 +153,12 @@ ActiveRecord::Schema.define(version: 20150425171925) do
   end
 
   create_table "parkings", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "receptions", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

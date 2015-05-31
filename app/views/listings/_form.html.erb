@@ -43,6 +43,38 @@ Event type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
   <%= label_tag dom_id(parking), parking.name %><br>
 <% end %> 
 <Br>
+
+<p><h4 class="text-center"> Amenities</h4></p>
+    <%= hidden_field_tag "listing[amenity_ids][]", nil %>
+<% Amenity.all.each do |amenity| %>
+  <%= check_box_tag "listing[amenity_ids][]", amenity.id, @listing.amenity_ids.include?(amenity.id), id: dom_id(amenity) %>
+  <%= label_tag dom_id(amenity), amenity.name %><br>
+<% end %> 
+<Br>
+
+<p><h4 class="text-center"> Food</h4></p>
+    <%= hidden_field_tag "listing[food_ids][]", nil %>
+<% Food.all.each do |food| %>
+  <%= check_box_tag "listing[food_ids][]", food.id, @listing.food_ids.include?(food.id), id: dom_id(food) %>
+  <%= label_tag dom_id(food), food.name %><br>
+<% end %> 
+<Br>
+
+<p><h4 class="text-center"> Alcohol</h4></p>
+    <%= hidden_field_tag "listing[alcohol_ids][]", nil %>
+<% Alcohol.all.each do |alcohol| %>
+  <%= check_box_tag "listing[alcohol_ids][]", alcohol.id, @listing.alcohol_ids.include?(alcohol.id), id: dom_id(alcohol) %>
+  <%= label_tag dom_id(alcohol), alcohol.name %><br>
+<% end %> 
+<Br>
+
+<p><h4 class="text-center"> Reception</h4></p>
+    <%= hidden_field_tag "listing[reception_ids][]", nil %>
+<% Reception.all.each do |reception| %>
+  <%= check_box_tag "listing[reception_ids][]", reception.id, @listing.reception_ids.include?(reception.id), id: dom_id(reception) %>
+  <%= label_tag dom_id(reception), reception.name %><br>
+<% end %> 
+<Br>
 <!--- <p> Availability</p>
 Calendar will go here
 -->
