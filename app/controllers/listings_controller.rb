@@ -3,7 +3,7 @@ class ListingsController < ApplicationController
   # GET /listings
   # GET /listings.json
 
-  layout 'nofoot', :only => [:index]
+  layout 'nofoot'
 
   def index
     @search = Listing.search(params[:q])

@@ -6,7 +6,13 @@
 <div class="col-md-7">
 	<p><h2>Search </h2></p>
 	<p><%= render "listings/searchlistings" %></p>
+
+<% if !@listings.empty? %> 
 <%= render @listings %>
+<% else %>
+<p>No results found matching those search terms.</p>
+<% end %>
+
 </div>
 <div class="col-md-5" >
 <div style='width: 515px; height:560px; position:fixed'>
