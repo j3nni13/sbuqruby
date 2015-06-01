@@ -13,17 +13,25 @@ class User < ActiveRecord::Base
          has_many :alcohols, :through => :listings
          has_many :receptions, :through => :listings
 
+
          has_attached_file :avatar, styles: {
           thumb: '100x100>',
           square: '200x200#',
           medium: '300x300>'
   }
 
+  ROLES = %w[venuemanager normal]
+
   # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
      end
+
      def admin?
      	admin
+     end
+
+     def venuemanager?
+      venuemanager
      end
 
 
