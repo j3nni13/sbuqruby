@@ -8,9 +8,12 @@
     <%= f.text_field :city_or_province_or_country_cont, label: false, placeholder: "Location", class: "form-control" %>
         <%= f.search_field :mincapacity_lteq, label: false, maxlength: 10, placeholder: "Min People", class: "form-control" %>
         <%= f.search_field :maxcapacity_gteq, label: false, maxlength: 10,  placeholder: "Max People", class: "form-control" %>
+
         <span class="input-group-btn">
-  <%= f.submit "Search", class: "btn btn-default"%>
-</span>
+  		<%= f.submit "Search", class: "btn btn-default"%>
+		</span>
+
+		<p> More options</p>
 <% end %>
 </div>
 </div>
