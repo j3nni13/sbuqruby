@@ -1,15 +1,13 @@
 Rails.application.routes.draw do
-  resources :receptions
 
-  resources :alcohols
-
-  resources :foods
-
-  resources :amenities
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :eventtypes
   resources :venuetypes
+  resources :receptions
+  resources :alcohols
+  resources :foods
+  resources :amenities
   resources :listings do
     collection do
       match 'search' => 'listings#search', via: [:get, :post], as: :search

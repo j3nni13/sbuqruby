@@ -10,5 +10,16 @@
     <%= f.button :submit, "Log in", class: "btn btn-primary btn-block" %>
  
 <% end %>
+
+<% if !flash[:alert].blank? %>
+                    <% if flash[:alert][/The email address and password you entered do not match our records/] %>
+                        <div class="flashNotice col last">
+                            <%= t('devise.failure.not_found_in_database', resource_name: "#{params[:user][:email]}").html_safe %>
+                        </div>
+                    <% else %>
+                    <!-- Style for any warning message -->
+                        <div class="flashNotice col last"><%= flash[:alert]%></div>
+                    <% end %>
+                <% end %>
  
 <%= render "devise/shared/links" %></div>
