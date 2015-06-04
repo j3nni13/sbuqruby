@@ -8,6 +8,8 @@ class Listing < ActiveRecord::Base
 	has_and_belongs_to_many :foods
 	has_and_belongs_to_many :alcohols
 	has_and_belongs_to_many :receptions
+	has_many :favourites, as: :favourited
+  	has_many :fans, through: :favourites, source: :user
 
 	# Paperclip
 	has_attached_file :image, styles: { 

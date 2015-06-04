@@ -5,6 +5,9 @@ class ListingsController < ApplicationController
 
   layout 'nofoot'
 
+    # Add and remove favorite listings
+  # for current_user
+   
   def index
     @search = Listing.search(params[:q])
     @listings = @search.result(distinct: true).page(params[:page]).per(24)
@@ -96,4 +99,7 @@ class ListingsController < ApplicationController
     def show_venuetypes
       @venuetype = Venuetype.find(params[:id])
    end
+
+
+
 end

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       match 'search' => 'listings#search', via: [:get, :post], as: :search
     end
   end
+  resources :favourite_listings, only: [:create, :destroy]
   
 
   devise_for :admins, controllers: {registrations: 'registrations'}
@@ -21,6 +22,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'dashboard' => "pages#dashboard"
+  get 'favourites' => "pages#favourites"
   get 'dminlistings' => "pages#dminlistings"
   get 'search' => "listings#search"
   get 'faq' => "pages#faq"

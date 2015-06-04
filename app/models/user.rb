@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
          has_many :parkings, :through => :listings
          has_many :alcohols, :through => :listings
          has_many :receptions, :through => :listings
+         has_many :favourite_listings, through: :favourites, source: :favourited, source_type: "Listing"
+         has_many :favourites
 
 
          has_attached_file :avatar, styles: {

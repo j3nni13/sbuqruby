@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150601052229) do
+ActiveRecord::Schema.define(version: 20150604173133) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,24 @@ ActiveRecord::Schema.define(version: 20150601052229) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
+
+  create_table "favourite_listings", force: :cascade do |t|
+    t.integer  "listing_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "favourites", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "favourited_id"
+    t.string   "favourited_type"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "favourites", ["favourited_type", "favourited_id"], name: "index_favourites_on_favourited_type_and_favourited_id", using: :btree
+  add_index "favourites", ["user_id"], name: "index_favourites_on_user_id", using: :btree
 
   create_table "foods", force: :cascade do |t|
     t.string   "name"

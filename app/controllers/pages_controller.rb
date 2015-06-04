@@ -12,6 +12,11 @@ class PagesController < ApplicationController
     render(:layout => 'layouts/nofoot')
   end
 
+   def favourites
+    @listings = current_user.favourite_listings
+    render(:layout => 'layouts/nofoot')
+  end
+
 def index
    @search = Listing.search(params[:q])
    @listings  = @search.result 
