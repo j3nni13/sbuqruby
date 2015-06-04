@@ -4,10 +4,12 @@ class PagesController < ApplicationController
 
   def dashboard
   	@listings = current_user.listings
+    render(:layout => 'layouts/nofoot')
   end
 
-  def adminlistings
+  def dminlistings
   	@listings = current_user.listings
+    render(:layout => 'layouts/nofoot')
   end
 
 def index

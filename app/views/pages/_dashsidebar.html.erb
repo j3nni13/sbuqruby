@@ -1,0 +1,16 @@
+<li class="sidebar-brand">
+                    <li><%= image_tag(@current_user.avatar, :class => "img-circle", :width => "100px")  %>
+                    <li><h4>Welcome <%= @current_user.firstname %></h4></li>
+                <li class="active">
+                   <%= link_to "Dashboard", dashboard_path %>
+                </li>
+                <li>
+                   <%= link_to "User Settings", edit_user_registration_path %>
+                </li>
+                <li>
+                    <a href="#">Favourites</a>
+                </li>
+                <li>
+                    <%= link_to "My Listings", dminlistings_path %>
+                </li>
+                

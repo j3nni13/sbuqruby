@@ -18,12 +18,18 @@
 <body>
 	 <div class="form-cl">
 <div class="container">
-	<%= render "layouts/header" %>
+
+  <% if current_page?(dashboard_path) %>
+  <%= render "layouts/dashheader" %>
+  <% else %>
+  <%= render "layouts/header" %>
+  <% end %>
+
 	<%= yield %>
 </div>
 
 </div>
 
 </body>
- <%= render "layouts/footer" unless current_page?(dashboard_path) %>
+ <%= render "layouts/footer" %>
 </html>

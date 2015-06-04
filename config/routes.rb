@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :alcohols
   resources :foods
   resources :amenities
+  resources :pages
   resources :listings do
     collection do
       match 'search' => 'listings#search', via: [:get, :post], as: :search
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'dashboard' => "pages#dashboard"
+  get 'dminlistings' => "pages#dminlistings"
   get 'search' => "listings#search"
   get 'faq' => "pages#faq"
   get 'howitworks' => "pages#howitworks"

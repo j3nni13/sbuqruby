@@ -16,7 +16,13 @@
 
 </head>
 <body>
-<%= render "layouts/header" %>
+  <%= if current_page?(url_for(:controller =>'pages', :action => "dashboard")) %>
+  <%= render "layouts/dashheader" %>
+
+  <% else %>
+  <%= render "layouts/header" %>
+  <% end %>
+
  <div class="form-cl">
 <div class="container">
 

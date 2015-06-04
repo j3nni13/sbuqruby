@@ -1,19 +1,28 @@
-  <div class="row">
-    <h1 class="text-center"><%= link_to image_tag('img/ui-sam.jpg', :class => "img-circle"), "#" %> All Venue Listings</h1>
-     <table class="table">
+    <div class="row">
+        <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper" class="nav-collapse ">
+            <ul class="sidebar-nav">
+                <%= render 'pages/dashsidebar' %>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>My Listings</h1>
+                        <% if can? :manage, Listing %>
+                 <%= link_to "New Listing", new_listing_path %>
+             
+
+         <table class="table">
         <thead>
           <tr>
-            <th>Id</th>
             <th>Name</th>
-            <th>Contact Person</th>
-            <th>Contact Title</th>    
-            <th>Phone Number</th>  
-            <th>E-mail</th> 
-            <th>Location</th>   
-            <th>Venue Type</th> 
-            <th>Event Type</th> 
-            <th>Min Capacity</th> 
-            <th>Max Capacity</th> 
             <th>Price</th>  
             <th></th>
           </tr>
@@ -21,24 +30,42 @@
         <tbody>
         <% @listings.each do |listing| %> 
           <tr>
-            <td><%= listing.id %></td>
-            <td><%= link_to listing.title, listing_path(listing) %></td>
-            <td><%= listing.contactname %></td>
-            <td><%= listing.contacttitle %></td>
-            <td><%= listing.phonenumber %></td>
-            <td><%= listing.email %></td>
-            <td><%= listing.location %></td>
-            <td><%= Venuetype.find(listing.venuetype).name  %></td>
-            <td><%= Eventtype.find(listing.eventtype).name  %></td>
-            <td><%= listing.mincapacity %> </td>
-            <td><%= listing.maxcapacity %></td>
-            <td><%= number_to_currency(listing.price, :unit => "$")%></td>
+            <td><%= link_to listing.title, edit_listing_path(listing) %></td>
+            <td><%= listing.price %></td>
             <td><%= link_to "Edit", edit_listing_path(listing) %></td>
+            <td><%= link_to "View", listing_path(listing) %></td>
           </tr>
         <% end %>
         </tbody>
       </table>
-    </div>
+
+      <% else %>
+      Sorry, you are not a venue manager. Please contact us to become one.
+        <% end %> 
 
     
-    
+
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+

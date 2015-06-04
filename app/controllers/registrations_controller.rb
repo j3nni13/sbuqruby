@@ -1,4 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
+
+  layout 'nofoot'
+
 def update
     account_update_params = devise_parameter_sanitizer.sanitize(:account_update)
     @user = User.find(current_user.id)

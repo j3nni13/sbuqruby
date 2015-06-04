@@ -1,7 +1,22 @@
+<!-- Sidebar -->
+        <div id="sidebar-wrapper" class="nav-collapse ">
+            <ul class="sidebar-nav">
+                <%= render 'pages/dashsidebar' %>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
  <h1 class="text-center">Editing Listing</h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @listing %> |
 <%= link_to 'Back', listings_path %>
+</div> <!-- row -->
+</div> <!-- container-fluid -->
+</div> <!-- page-content-wrapper -->
 

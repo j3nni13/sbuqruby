@@ -1,3 +1,10 @@
+<div id="sidebar-wrapper" class="nav-collapse ">
+            <ul class="sidebar-nav">
+                <%= render 'pages/dashsidebar' %>
+            </ul>
+        </div>
+         <div id="page-content-wrapper">
+            <div class="container-fluid">
 <div class="text-center">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-listings" }) do |f| %>
 <div class="form-cl">
@@ -29,4 +36,4 @@
 <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
  
 <%= link_to "Back", :back %>
-</div></div>
+</div></div></div></div>
