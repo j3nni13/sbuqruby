@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :foods
   resources :amenities
   resources :pages
+  resources "contacts", only: [:new, :create]
   resources :listings do
     collection do
       match 'search' => 'listings#search', via: [:get, :post], as: :search
