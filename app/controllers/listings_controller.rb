@@ -9,6 +9,7 @@ class ListingsController < ApplicationController
   # for current_user
    
   def index
+    @pictures = Listing.all
     @search = Listing.search(params[:q])
     @listings = @search.result(distinct: true).page(params[:page]).per(24)
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
@@ -27,6 +28,7 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listings = Listing.all
+    @pictures = @listing.pictures
   end
 
   # GET /listings/new
@@ -48,13 +50,23 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @listing.save
+
+         if params[:photos]
+        #===== The magic is here ;)
+        params[:photos].each { |photo|
+            @listing.pictures.create(photo: photo)
+          }
+      end
+
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
         format.json { render :show, status: :created, location: @listing }
+        
       else
         format.html { render :new }
         format.json { render json: @listing.errors, status: :unprocessable_entity }
       end
     end
+     
   end
 
   # PATCH/PUT /listings/1
@@ -64,6 +76,15 @@ class ListingsController < ApplicationController
     authorize! :manage, @listing
 
     respond_to do |format|
+
+      if @listing.update_attributes(listing_params)
+        if params[:photos]
+          # The magic is here ;)
+          params[:photos].each { |photo|
+            @listing.pictures.create(photo: photo)
+          }
+        end
+
       if @listing.update(listing_params)
         format.html { redirect_to @listing, notice: 'Listing was successfully updated.' }
         format.json { render :show, status: :ok, location: @listing }
@@ -73,6 +94,7 @@ class ListingsController < ApplicationController
       end
     end
   end
+end
 
   # DELETE /listings/1
   # DELETE /listings/1.json
@@ -93,13 +115,11 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:title, :contactname, :contacttitle, :phonenumber, :email, :mincapacity, :maxcapacity, :eventtype, :street, :street2, :city, :province, :country, :postalcode, :location, :price, :description, :image, venuetype_ids: [], eventtype_ids: [], parking_ids: [], amenity_ids: [], food_ids: [], alcohol_ids: [], reception_ids: [])
+      params.require(:listing).permit(:title, :contactname, :contacttitle, :phonenumber, :email, :mincapacity, :maxcapacity, :eventtype, :street, :street2, :city, :province, :country, :postalcode, :location, :price, :description, :pictures, :photos, venuetype_ids: [], eventtype_ids: [], parking_ids: [], amenity_ids: [], food_ids: [], alcohol_ids: [], reception_ids: [])
     end
 
     def show_venuetypes
       @venuetype = Venuetype.find(params[:id])
    end
-
-
 
 end

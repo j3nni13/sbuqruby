@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     end
   end
   resources :favourite_listings, only: [:create, :destroy]
+  resources :pictures
   
 
   devise_for :admins, controllers: {registrations: 'registrations'}

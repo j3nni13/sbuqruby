@@ -15,4 +15,25 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require underscore
+//= require fancybox
+
+$(document).ready(function() {
+  $("a.fancybox").fancybox();
+});
+$(document).ready(function() {
+	$(".fancybox-thumb").fancybox({
+		prevEffect	: 'none',
+		nextEffect	: 'none',
+		helpers	: {
+			title	: {
+				type: 'outside'
+			},
+			thumbs	: {
+				width	: 50,
+				height	: 50
+			}
+		}
+	});
+});
+
 //= require_tree .

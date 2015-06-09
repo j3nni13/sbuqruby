@@ -1,7 +1,11 @@
 <div class="container-fluid">
 <div class="row">
   <div class="listing_imagebox">
-<%= image_tag @listing.image.url(), :class => "listimg" %>
+  
+  <% @listing.pictures.each do |picture| %>
+  <%= link_to(image_tag(picture.photo.url, :width => '100%'), picture.photo.url, :class => 'fancybox-thumb', :rel => 'gallery' ) %>
+  <% end %>
+
 </div>
 </div> <!-- row -->
 
@@ -114,4 +118,3 @@ Favourited <%= @listing.favourites.count %> time(s).
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-

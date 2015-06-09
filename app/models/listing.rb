@@ -12,17 +12,12 @@ class Listing < ActiveRecord::Base
   	has_many :fans, through: :favourites, source: :user
 
 	# Paperclip
+ 	has_many :pictures, :dependent => :destroy
 	has_attached_file :image, styles: { 
 		medium: '200x200>',
 		thumb: '100x100>'
-		}, :default_url => "img/missing.png"                                                
-
-	validates_attachment_content_type :image, 
-	content_type:  /^image\/(png|gif|jpeg)/,
-	message: "Only images allowed"
-
-# If requires image validation:
-# validates :image, attachment_presence: true
+		}, 
+		:default_url => "img/missing.png" 
 
 	def address
   [street, street2, city, province, country].compact.reject(&:blank?).join(', ')
@@ -37,6 +32,7 @@ class Listing < ActiveRecord::Base
 	 def index
     @search = Listing.search(params[:q])
     @listings = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 40) if params[:q]
+    
 end
    
    rails_admin do

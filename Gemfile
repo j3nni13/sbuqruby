@@ -40,6 +40,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'country_select'
   gem 'gmaps4rails'
   gem 'paperclip'
+  gem 'fancybox2-rails', '~> 0.2.8'
   #Search
   gem 'ransack'
   #Development

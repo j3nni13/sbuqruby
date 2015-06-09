@@ -1,13 +1,10 @@
 <div class="col-md-6">
 <div class="thumbnail">
-
- <% @listings.each do |listing| %>
-  <%= link_to image_tag(listing.pictures.first.photo.url, :width => '100%'), listing_path(listing) %>
-  <% end %>
-
+<%= link_to listing_path(listing) do %>
+<%= image_tag listing.image.url(:original), class: "img-responsive" %>
+<% end %>
 <div class="caption">
-		<p><h5><%= link_to listing.title, listing_path(listing) %></h5></p>
-
+		<p><h5><%= link_to listing.title, listing_path(listing) %></h5><p>
 			<p><% listing.venuetypes.each do |vt| %>
  	 <%= vt.name %><%= '/' unless vt == listing.venuetypes.last %>
 	<% end %>

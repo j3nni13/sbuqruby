@@ -649,26 +649,28 @@ font-family: 'Lato', sans-serif;
 }
 
 #wrapper.toggled {
-    padding-left: 250px;
+    padding-left: 230px;
 }
 
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 250px;
+    left: 230px;
     width: 0;
     height: 100%;
-    margin-left: -250px;
+    margin-left: -230px;
     overflow-y: auto;
-    background: #000;
+    background: #424a5d;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
 }
 
+
+
 #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+    width: 230px;
 }
 
 #page-content-wrapper {
@@ -679,15 +681,16 @@ font-family: 'Lato', sans-serif;
 
 #wrapper.toggled #page-content-wrapper {
     position: absolute;
-    margin-right: -250px;
+    margin-right: -230px;
 }
 
 /* Sidebar Styles */
 
+
 .sidebar-nav {
     position: absolute;
     top: 0;
-    width: 250px;
+    width: 230px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -708,6 +711,7 @@ font-family: 'Lato', sans-serif;
     text-decoration: none;
     color: #fff;
     background: rgba(255,255,255,0.2);
+
 }
 
 .sidebar-nav li a:active,
@@ -729,6 +733,16 @@ font-family: 'Lato', sans-serif;
     color: #fff;
     background: none;
 }
+
+.sidebar-nav h4 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  margin-left: -10px;
+}
+
 
 @media(min-width:768px) {
     #wrapper {
