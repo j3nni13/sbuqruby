@@ -1,4 +1,5 @@
 class PicturesController < ApplicationController
+
   # GET /pictures
   # GET /pictures.json
   def index
@@ -91,7 +92,7 @@ class PicturesController < ApplicationController
     @picture.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to :back }
       format.js
     end
   end
