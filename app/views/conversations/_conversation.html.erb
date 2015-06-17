@@ -1,15 +1,13 @@
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <img class="media-object" src="http://placehold.it/64x64" alt="...">
-    </a>
+<%= image_tag(conversation.originator.avatar, :width => "100px")  %>
   </div>
   <div class="media-body">
       <b><%= conversation.subject %></b><br>
       <small><b>From: </b><%= conversation.originator.fullname %></small><br>
       <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
-    <br>
+    <p><br>
     <%= truncate conversation.messages.last.body, length: 145 %>
-    <br><%= link_to "View message", conversation_path(conversation)  %>
+    <br><%= link_to "View message", conversation_path(conversation)  %></p>
   </div>
 </div>

@@ -1,16 +1,29 @@
-<%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
+    <%= form_for :conversation, url: :conversations, html: { class: "" } do |f| %>
     <div class="form-group">
-     <%= f.select(:recipients, recipients_options(@chosen_recipient), {}, { multiple: true , class: "form-control", :style => 'display:none'}) %>
-        <%= f.select(:subject, subject_options(@chosen_splisting), {}, { class: "form-control", :style => 'display:none'}) %>
+     <% if @chosen_splisting.to_s.empty? %>
+         <%= f.text_field :subject, :value => 'Venue Manager Request', :style => 'display:none' %>
+        <%= f.select(:recipients, recipients_options(@chosen_recipient), {}, { multiple: true , class: "form-control", :style => 'display:none'}) %>
+        <% else %>
+         <%= f.select(:subject, subject_options(@chosen_splisting), {}, { class: "form-control", :style => 'display:none'}) %>
+        <% end %>
     </div>
-    <h1 align="center">Request for booking</h1>
-    <br><center>For  <%= link_to @chosen_splisting.title, :back %> </center>
-    <div class="form-group">
+    <% if @chosen_splisting.to_s.empty? %>
+       <h1 align="center">Venue Manager Request</h1>
+        <div class="form-group">
       <%= f.label :message %>
-      <%= f.text_area :body, class: 'form-control', placeholder: "Type your message here", rows: 4  %>
+      <%= f.text_area :body, class: 'form-control', placeholder: "Please tell us about the venue you manage. (Name, Location, Type of events, etc)", rows: 4  %>
     </div>
- 
-    <%= f.submit "Send Message", class: "btn btn-success" %>
+    <% else %>
+     <h1 align="center">Request for booking</h1>
+    <br><center>For <%= link_to @chosen_splisting.title, :back %></center>
+     <div class="form-group">
+      <%= f.label :message %>
+      <%= f.text_area :body, class: 'form-control', placeholder: "Tell the venue about yourself and your event. (Type of event, how many people, amenity requirements, etc.)", rows: 4  %>
+    </div>
+    <% end %>
+   
+
+    <%= f.submit "Send Message", class: "btn btn-success" %> 
  
 
 <% end %>

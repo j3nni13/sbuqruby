@@ -12,41 +12,19 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1>Simple Sidebar</h1>
-                        <% if can? :manage, Listing %>
-                 <%= link_to "New Listing", new_listing_path %>
-                 <% end %> 
-
-         <table class="table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Price</th>  
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-        <% @listings.each do |listing| %> 
-          <tr>
-            <td><%= listing.id %></td>
-            <td><%= link_to listing.title, listing_path(listing) %></td>
-            <td><%= listing.price %></td>
-            <td><%= link_to "Edit", edit_listing_path(listing) %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-
-        
-   
-    <% if can? :manage, @listing %>
-        <%= link_to "New Event Type", new_eventtype_path %> | <%= link_to "See All Event Types", eventtypes_path %>
-    <br><%= link_to "New Venue Type", new_venuetype_path %> | <%= link_to "See All Venue Types", venuetypes_path %>
-    <% end %>
-    
+                <div id="dash">
+                        <h1 class="text-center">Welcome Back</h1>
+                        <center>
+                    <%= link_to "Inbox", mailbox_inbox_path %> |
+                   <%= link_to "User Settings", edit_user_registration_path %> |
+                    <%= link_to "Favourites", favourites_path %> |
+                    <%= link_to "My Listings", dminlistings_path %></center>
+                </div>
+    <div class="col-lg-6 col-lg-offset-3 text-center">
+                <br><h1>Find the SPACE, buq it.</h1>
+                <br>SPACEbüq aims to provide the most user friendly venue management platform in the market, and the simplest, comprehensive search experience for event planners and everyday people planning events.
+                <br><br> <%= link_to "Create a Listing", dminlistings_path, class: "btn btn-primary" %> 
+</div>
 
                         
                     </div>

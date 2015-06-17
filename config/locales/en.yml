@@ -25,4 +25,4 @@ en:
   en:
   mailboxer:
     message_mailer:
-      subject_new: '[Booking Request] %{subject}'
+      subject_new: '[New Request] %{subject}'

@@ -8,12 +8,13 @@
 </div>
 </div> <!-- row -->
 
-<div class="row">
-<div class="col-md-7 listinginfo">
+<div class="row-fluid">
+<div class="col-md-6 listinginfo">
 <h2> <%= @listing.title %></h2>
 <p> <%= @listing.address %></p>
 
-<div class="col-md-4">
+<div class="row-fluid">
+<div class="col-md-6">
 <p> <h3>Venue type(s):</h3><br>
 
 	<% @listing.venuetypes.each do |cat| %>
@@ -26,27 +27,43 @@
 	<% end %>
 </div>
 
-<div class="col-md-3">
+<div class="col-md-6">
 <p><h3>Min Capacity: </h3>
   <br><%= @listing.mincapacity %></p>
 <p><h3>Max Capacity: </h3>
   <br><%= @listing.maxcapacity %></p>
+  <br>
 </div>
 </div>
 
-<div class="col-md-5 listingright">
+<div class="row-fluid">
+  <div class="col-md-12 listinginfodesc">
+    <br>
+<p><h4> About this Listing</h4>
+<%= simple_format(@listing.description) %>
+</div>
+</div>
 
+
+<div class="row-fluid">
+  <div class="col-md-12 listinginfo2">
+    <br>
 <p><h4> Additional Venue Information</h4>
+  <div class="row-fluid">
+<div class="col-md-6">
+  <h3>Amenities:</h3>
+ <br> <% @listing.amenities.each do |cat| %>
+   <%= cat.name %><br>
+   <% end %>
+   <br>
   <h3>Parking:</h3>
  <br> <% @listing.parkings.each do |cat| %>
    <%= cat.name %><br>
    <% end %>
    <br>
-     <h3>Amenities:</h3>
- <br> <% @listing.amenities.each do |cat| %>
-   <%= cat.name %><br>
-   <% end %>
-   <br>
+ </div>
+
+   <div class="col-md-6">
      <h3>Food:</h3>
  <br> <% @listing.foods.each do |cat| %>
    <%= cat.name %><br>
@@ -62,11 +79,26 @@
    <%= cat.name %><br>
    <% end %>
 </p>
-<p><h4 class="text-center">
-	<%= number_to_currency(@listing.price, :unit => "$") %>
-</h4>
+</div>  
+ </div>
+</div>
+</div>
+</div>
 
-Favourited <%= @listing.favourites.count %> time(s).
+
+<div class="col-md-5 listingright">
+  <div class="listingbooking">
+
+<p><h4 class="text-center" style="color:white">Book or get more Info</h4>
+  <center>
+  <%= link_to "Request a Booking", new_conversation_path(to: @listing.user_id, splist: @listing.id), class: "btn btn-xlarge btn-success" %></center>
+</div>
+ 
+<p><br><h4 class="text-center">Price per Event</h4>
+  <center><h4><%= number_to_currency(@listing.price, :unit => "$") %><h4></center>
+
+<Br>
+  Favourited <%= @listing.favourites.count %> time(s).
 <br>
 <%- unless current_user.favourite_listings.exists?(id: @listing.id) -%>
 <%= link_to favourite_listings_path(listing_id: @listing), method: :post do %>
@@ -78,29 +110,26 @@ Favourited <%= @listing.favourites.count %> time(s).
 <% end %>
 <%- end -%>
 
-<p><h4 class="text-center">Request a Booking</h4>
-  <%= link_to "Message This User", new_conversation_path(to: @listing.user_id, splist: @listing.id), class: "btn btn-large btn-primary" %>
-
-
-</div> <!-- col-md-6 -->
-</div> <!-- row -->
-
-<div class="row">
-  <div class="col-md-7 listingdesc">
-<%= simple_format(@listing.description) %>
-</div>
-
-<div class="row">
+<div class="row-fluid">
+  <p><h4 class="text-center">Location</h4>
 <div id="map-canvas" style="width: 100%; height: 400px;"></div>
 
 </div><!-- map-canvas -->
 </div><!-- row -->
 
+</div> <!-- listing-right -->
+
+
+
 <% if can? :update, @listing %>
 <%= link_to 'Edit', edit_listing_path(@listing) %> |
-<% end %>
 <%= link_to 'Back', listings_path %>
+<% end %>
+
 </div>
+<div class="row">
+   <%= render "layouts/footer" %>
+ </div>
 
 <script type="text/javascript">
       function initialize() {

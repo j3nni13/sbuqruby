@@ -183,7 +183,6 @@ div {
 }
 
 .container-fluid a:link, .container-fluid a:visited {
-    color: #000;
 }
 
 
@@ -367,6 +366,15 @@ color: #fff;
 
 /* Listings Page
 -------------------------------------------------- */
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px;
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
+    }
+
 .listing_imagebox {
   height: 430px;
   overflow: hidden;
@@ -393,7 +401,18 @@ color: #fff;
   position: relative;
   top: -80px;
   left: 50px;
-  width: 600px;
+}
+
+.listinginfo2 {
+  background-color: white;
+  opacity: 0.8;
+  position: relative;
+}
+
+.listinginfodesc {
+  background-color: white;
+  opacity: 0.8;
+  position: relative;
 
 }
 
@@ -413,6 +432,12 @@ color: #fff;
   left: 120px;
   width: 500px;
 
+}
+
+.listingbooking {
+  background-color: grey;
+  padding: 40px;
+  margin-top: 10px;
 }
 
 /* MAP
@@ -456,6 +481,23 @@ font-family: 'Lato', sans-serif;
   padding-bottom: 70px;
   padding-top: 70px;
   color: #fff;
+}
+
+#dash-header {
+  padding-bottom: 70px;
+  padding-top: 30px;
+}
+
+#dash {
+  background-color: #34495e;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  color: #fff;
+}
+
+#dash a{
+  color: #fff;
+  font-size: 12px;
 }
 
 .row-about{
@@ -595,7 +637,7 @@ font-family: 'Lato', sans-serif;
   float: left;
   height: 36px;
   line-height: 36px;
-  margin: 0 8px 0 0;
+  margin: 10px 8px 0 0;
   padding: 0;
   text-align: center;
   width: 36px;

@@ -19,12 +19,14 @@
                  <%= link_to "New Listing", new_listing_path %>
              
 
-         <table class="table">
+         <table class="table" style="width:100%">
         <thead>
           <tr>
             <th>Name</th>
             <th>Price</th>  
             <th></th>
+            <th></th>
+             <th></th>
           </tr>
         </thead>
         <tbody>
@@ -33,7 +35,8 @@
             <td><%= link_to listing.title, edit_listing_path(listing) %></td>
             <td><%= listing.price %></td>
             <td><%= link_to "Edit", edit_listing_path(listing) %></td>
-            <td><%= link_to "View", listing_path(listing) %></td>
+            <td><%= link_to "View", listing_path(listing) %></td>   
+            <td style="width: 20%"> <%= link_to image_tag(listing.pictures.first.photo.url, :width => '200px'), edit_listing_path(listing) %></td>
           </tr>
         <% end %>
         </tbody>
@@ -41,6 +44,9 @@
 
       <% else %>
       Sorry, you are not a venue manager. Please contact us to become one.
+      <br>
+      <br>
+       <%= link_to "Request to be a Venue Manager", new_conversation_path(to: @user_id = "1"), class: "btn btn-large btn-primary" %>
         <% end %> 
 
     

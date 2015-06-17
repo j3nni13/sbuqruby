@@ -1,5 +1,7 @@
 class ConversationsController < ApplicationController
 before_action :authenticate_user!
+
+layout 'nofoot'
  
   def new
     @chosen_recipient = User.find_by(id: params[:to].to_i) if params[:to]
