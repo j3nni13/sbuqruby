@@ -1,0 +1,13 @@
+                    <div class="col-lg-12">     
+                 <%= render partial: 'mailbox/folder_view', locals: { is_conversation: true } %>
+        </div>
+    <!-- /#wrapper -->
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+

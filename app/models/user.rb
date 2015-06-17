@@ -4,6 +4,21 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
+    def fullname
+    [firstname, lastname].compact.reject(&:blank?).join(' ')
+    end
+    
+# In-App Messaging
+         acts_as_messageable
+
+         def mailboxer_name
+          self.name
+        end
+ 
+        def mailboxer_email(object)
+          self.email
+        end
+        
          has_many :listings
          has_many :venuetypes, :through => :listings
          has_many :eventtypes, :through => :listings
@@ -21,11 +36,10 @@ class User < ActiveRecord::Base
           square: '200x200#',
           medium: '300x300>'
   }
+end
+     
 
-  # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
-     end
-
+# Set Roles
      def admin?
      	admin
      end
@@ -34,5 +48,4 @@ class User < ActiveRecord::Base
       venuemanager
      end
 
-
-
+     private

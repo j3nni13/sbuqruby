@@ -28,7 +28,6 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listings = Listing.all
-    @pictures = @listing.pictures
   end
 
   # GET /listings/new

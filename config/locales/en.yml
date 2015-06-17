@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+  en:
+  mailboxer:
+    message_mailer:
+      subject_new: '[Booking Request] %{subject}'

@@ -17,6 +17,16 @@ Rails.application.routes.draw do
   end
   resources :favourite_listings, only: [:create, :destroy]
   resources :pictures
+  resources :conversations do
+    member do
+      post :reply
+      post :trash
+      post :untrash
+    end
+    collection do
+    delete :empty_trash
+  end
+  end
   
 
   devise_for :admins, controllers: {registrations: 'registrations'}
@@ -31,6 +41,11 @@ Rails.application.routes.draw do
   get 'howitworks' => "pages#howitworks"
   get 'aboutus' => "pages#aboutus"
   get 'fees' => "pages#fees"
+  
+  # mailbox folder routes
+  get "mailbox/inbox" => "mailbox#inbox", as: :mailbox_inbox
+  get "mailbox/sent" => "mailbox#sent", as: :mailbox_sent
+  get "mailbox/trash" => "mailbox#trash", as: :mailbox_trash
 
 
   # The priority is based upon order of creation: first created -> highest priority.

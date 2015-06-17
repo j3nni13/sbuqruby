@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/lacco/mailboxer.git
+  revision: d436329f771d1607a6835f0aeb8b1120a3562a47
+  specs:
+    mailboxer (0.12.5)
+      carrierwave (>= 0.5.8)
+      rails (>= 3.2.0)
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: cd805c7217703e60ff82576525a3ba03a3c2bc35
   specs:
@@ -62,6 +70,11 @@ GEM
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
     cancan (1.6.10)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.7)
@@ -281,6 +294,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mail_form
+  mailboxer!
   paperclip
   pg
   rails (= 4.2.0)

@@ -1,0 +1,14 @@
+<% @receipts.each do |receipt| %>
+    <% message = receipt.message %>
+    <div class="media">
+      <div class="media-left">
+          <%= image_tag(@current_user.avatar, :width => "100px")  %>
+      </div>
+      <div class="media-body">
+          <b><%= message.subject %></b><br>
+          <small><b>From: </b><%= message.sender.fullname %></small><br>
+          <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
+        <%= message.body %>
+      </div>
+    </div>
+<% end %>

@@ -1,7 +1,6 @@
 <div class="container-fluid">
 <div class="row">
   <div class="listing_imagebox">
-  
   <% @listing.pictures.each do |picture| %>
   <%= link_to(image_tag(picture.photo.url, :width => '100%'), picture.photo.url, :class => 'fancybox-thumb', :rel => 'gallery' ) %>
   <% end %>
@@ -78,6 +77,10 @@ Favourited <%= @listing.favourites.count %> time(s).
 <%= @listing.favourites.count %> (Remove from Favourites)
 <% end %>
 <%- end -%>
+
+<p><h4 class="text-center">Request a Booking</h4>
+  <%= link_to "Message This User", new_conversation_path(to: @listing.user_id, splist: @listing.id), class: "btn btn-large btn-primary" %>
+
 
 </div> <!-- col-md-6 -->
 </div> <!-- row -->
