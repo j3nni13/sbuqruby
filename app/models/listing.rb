@@ -39,5 +39,27 @@ end
     list do
       exclude_fields :eventtype, :venuetype, :amenity
     end
+    edit do
+    	configure :title do
+    		label 'Venue Name'
+    	end
+    	configure :street2 do
+    		label "Address Cont."
+    	end
+    	configure :postalcode do
+    		label "Postal Code"
+    	end
+    	configure :contactname do
+    		label "Venue Contact"
+    	end
+    	configure :contacttitle do
+    		label "Contact Title"
+    	end
+    	configure :phonenumber do
+    		label "Phone number"
+    	end
+
+    	exclude_fields :eventtype, :venuetype, :amenities, :parking, :food, :alcohol, :audiovisual, :reception, :image
+    end	
    end
 end

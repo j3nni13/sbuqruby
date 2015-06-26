@@ -1,6 +1,6 @@
 <div class="container" style="width: 250px">
-	<div class="infowindow">
-		<br><%= image_tag @listing.image.url, width: 280, height: 100, class: "img-responsive" %>
+	<div class="infowindow"><%= link_to listing_path(@listing) do %>
+		<br>   <%= image_tag(@listing.pictures.first.photo.url, :width => '100%') %><% end %>
            <h1><%= @listing.title %></h1>
            <br><%= @listing.address %>
            <br>
