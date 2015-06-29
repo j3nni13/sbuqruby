@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+def options_for_province
+  ['AB', 'BC', 'MB', 'NB', 'NL', 'NU', 'NS', 'NT', 'ON', 'PE', 'QC', 'SK', 'YT']
+end
+
 def options_for_gender
   ['Gender', 'Female', 'Male', 'Other']
 end

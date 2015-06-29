@@ -43,6 +43,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'fancybox2-rails', '~> 0.2.8'
   gem 'dropzonejs-rails'
   gem 'mailboxer', github: 'lacco/mailboxer'
+
   #Search
   gem 'ransack'
   #Development

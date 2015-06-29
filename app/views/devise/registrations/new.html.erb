@@ -5,13 +5,13 @@
   <%= render 'layouts/messages' %>
     <%= devise_error_messages! %>
         <br>
- 	<%= f.input :firstname, required: false, autofocus: true, label: false, placeholder: "First Name", input_html: {class: "form-control"} %> 
-    <%= f.input :lastname, required: false, autofocus: true, label: false, placeholder: "Last Name", input_html: {class: "form-control"} %>
+ 	<%= f.input :firstname, required: true, autofocus: true, label: false, placeholder: "First Name", input_html: {class: "form-control"} %> 
+    <%= f.input :lastname, required: true, autofocus: true, label: false, placeholder: "Last Name", input_html: {class: "form-control"} %>
     <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email", input_html: {class: "form-control"} %>
     <%= f.input :password, required: true, label: false, placeholder: "Password", input_html: {class: "form-control"} %>
     <%= f.input :password_confirmation, required: true, label: false, placeholder: "Password Confirmation", input_html: {class: "form-control"} %>
     <h2 class="text-center">More Details</h2>
-     <p> Gender: <%= f.select :gender, options_for_gender, {}, prompt: 'Select One',  placeholder: "First Name", input_html: {class: "form-control"} %> </p>
+     <p> Gender: <%= f.input :gender, collection: options_for_gender, prompt: 'Gender',  placeholder: "First Name", input_html: {class: "form-control"} %> </p>
      	<p>Date of Birth: <%= f.date_select :date_of_birth, :start_year => Date.current.year, :end_year => 1920, :include_blank => true, :default => nil %></p>
     <%= f.input :avatar, input_html: {class: "listingsm"}  %>
     <p><center><%= image_tag @user.avatar.url(), :class => "listimgsm" %></center>

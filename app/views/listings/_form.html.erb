@@ -6,7 +6,7 @@
     <h4 class="text-center">Contact Information</h4>
      <%= f.input :contactname, required: false, label: false, placeholder: "Name of Contact", input_html: {class: "form-control"} %>
      <%= f.input :contacttitle, required: false, label: false, placeholder: "Title of Contact", input_html: {class: "form-control"} %>
-     <%= f.input :phonenumber, required: true, label: false, placeholder: "Phone Number", input_html: {class: "form-control"} %>
+     <%= f.input :phonenumber, required: true, label: false, placeholder: "Phone Number (123) 123-1234", input_html: {class: "form-control", :maxlength => 14,} %>
      <%= f.input :email, required: true, label: false, placeholder: "E-mail", input_html: {class: "form-control"} %>
 
      <h4 class="text-center">Venue Details</h4>
@@ -14,7 +14,7 @@
     <%= f.input :street, required: true, label: false, placeholder: "Address", input_html: {class: "form-control"} %>
     <%= f.input :street2, required: false, label: false, placeholder: "Optional: Apt/Suite/etc", input_html: {class: "form-control"} %>
     <%= f.input :city, required: true, label: false, placeholder: "City", input_html: {class: "form-control"} %>
-    <%= f.input :province, required: true, label: false, placeholder: "Province", input_html: {class: "form-control"} %>
+ <%= f.input :province, collection: options_for_province, label: false, prompt: 'Province', required: true, class: 'form-control' %>
      <%= f.input :country, priority: ['CA', 'US'], required: true, label: false, placeholder: "Country", input_html: {class: "form-control"} %>
     <%= f.input :postalcode, required: true, label: false, placeholder: "Postal Code", input_html: {class: "form-control"} %>
 
