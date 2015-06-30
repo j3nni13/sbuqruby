@@ -1,0 +1,48 @@
+<center>
+ <script type="text/javascript" charset="utf-8">
+        $(function() {
+          $('#cropbox').Jcrop({
+            onChange: update_crop,
+            onSelect: update_crop,
+            setSelect: [0, 0, 300, 300],
+            aspectRatio: 1
+          });
+        });
+
+        function update_crop(coords) {
+            var rx = 100/coords.w;
+            var ry = 100/coords.h;
+            var lw = $('#cropbox').width();
+            var lh = $('#cropbox').height();
+            var ratio = <%= @user.avatar_geometry(:original).width %> / lw ;
+
+          $('#preview').css({
+            width: Math.round(rx * lw) + 'px',
+            height: Math.round(ry * lh) + 'px',
+            marginLeft: '-' + Math.round(rx * coords.x) + 'px',
+            marginTop: '-' + Math.round(ry * coords.y) + 'px'
+          });
+          $("#crop_x").val(Math.round(coords.x * ratio));
+          $("#crop_y").val(Math.round(coords.y * ratio));
+          $("#crop_w").val(Math.round(coords.w * ratio));
+          $("#crop_h").val(Math.round(coords.h * ratio));
+        }
+
+  </script>
+
+<%= image_tag @user.avatar.url(:original), :id => "cropbox" %>
+
+
+<h3>Preview</h3>
+<br>
+<div style="width:100px; height:100px; overflow:hidden">
+    <%= image_tag @user.avatar.url(:thumb), :id => "preview" %>
+</div>
+
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-listings" }) do |f| %>
+    <% for attribute in [:crop_x, :crop_y, :crop_h, :crop_w] %>
+        <%= f.hidden_field attribute, :id => attribute %>
+    <% end %>
+    <p><%= f.submit "Crop" %></p>
+<% end %>
+</center>

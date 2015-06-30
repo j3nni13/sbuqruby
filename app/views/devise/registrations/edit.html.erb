@@ -26,7 +26,7 @@
      <p><%= f.input :gender, collection: options_for_gender, label: false, prompt: 'Gender',  placeholder: "First Name", input_html: {class: "form-control"} %> </p>
      	<p><%= f.input :date_of_birth, as: :date, start_year: Date.current.year, end_year: 1920, :include_blank => true, :default => nil %></p>
     <%= f.input :avatar, input_html: {class: "listingsm"}  %>
-    <p><%= image_tag @user.avatar.url(), :class => "listimgsm" %>
+    <p><%= image_tag @user.avatar.url(:square) %>
     </p>
 
 

@@ -21,8 +21,8 @@ layout 'home'
     protected
 
         def configure_permitted_parameters
-            devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:email, :password) }
-            devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:firstname, :lastname, :email, :password, :current_password, :gender, :date_of_birth, :avatar) }
+            devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:firstname, :lastname, :email, :password, :gender, :date_of_birth, :avatar, :crop_x, :crop_y, :crop_w, :crop_h) }
+            devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:firstname, :lastname, :email, :password, :current_password, :gender, :date_of_birth, :avatar, :crop_x, :crop_y, :crop_w, :crop_h) }
         end
 
 	rescue_from CanCan::AccessDenied do |exception|

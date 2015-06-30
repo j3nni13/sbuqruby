@@ -11,10 +11,8 @@
     <%= f.input :password, required: true, label: false, placeholder: "Password", input_html: {class: "form-control"} %>
     <%= f.input :password_confirmation, required: true, label: false, placeholder: "Password Confirmation", input_html: {class: "form-control"} %>
     <h2 class="text-center">More Details</h2>
-     <p> Gender: <%= f.input :gender, collection: options_for_gender, prompt: 'Gender',  placeholder: "First Name", input_html: {class: "form-control"} %> </p>
+     <p> <%= f.input :gender, collection: options_for_gender, prompt: 'Gender', label: false, input_html: {class: "form-control"} %> </p>
      	<p>Date of Birth: <%= f.date_select :date_of_birth, :start_year => Date.current.year, :end_year => 1920, :include_blank => true, :default => nil %></p>
-    <%= f.input :avatar, input_html: {class: "listingsm"}  %>
-    <p><center><%= image_tag @user.avatar.url(), :class => "listimgsm" %></center>
     </p>
     <%= f.button :submit, "Sign up", class: "btn btn-primary btn-block" %>
     <br>

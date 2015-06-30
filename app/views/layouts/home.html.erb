@@ -6,6 +6,7 @@
   <title>Spacebuq</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+  <%= yield(:head) %>
   <%= csrf_meta_tags %>
   <meta name="p:domain_verify" content="9a853dffa9b3255150f0fa8886e3eafe"/>
 

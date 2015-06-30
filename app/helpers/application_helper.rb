@@ -5,7 +5,7 @@ def options_for_province
 end
 
 def options_for_gender
-  ['Gender', 'Female', 'Male', 'Other']
+  ['Female', 'Male', 'Other']
 end
 
 def active_page(active_page)

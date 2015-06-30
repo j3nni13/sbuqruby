@@ -53,9 +53,30 @@ class User < ActiveRecord::Base
          has_attached_file :avatar, styles: {
           thumb: '100x100>',
           square: '200x200#',
-          medium: '300x300>'},
-          :default_url => "img/missing.png" 
-        
+          medium: '300x300>',
+          large: '600x600>'},
+          :default_url => "img/missing.png",
+          :processors => [:cropper] 
+  
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_file_name :avatar, :matches => [/png\Z/, /jpe?g\Z/]
+  validates_with AttachmentSizeValidator, :attributes => :avatar, :less_than => 2.megabytes
+  
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  after_update :reprocess_avatar, :if => :cropping?
+ 
+  def cropping?
+    !crop_x.blank? && !crop_y.blank? && !crop_w.blank? && !crop_h.blank?
+  end
+ 
+  def avatar_geometry(style = :original)
+    @geometry ||= {}
+    @geometry[style] ||= Paperclip::Geometry.from_file(avatar.url(style))
+end
+      
+  skip_callback :save, :after, :store_file! 
+
+
 end
 
 
@@ -71,3 +92,8 @@ end
      end
 
      private
+
+     def reprocess_avatar
+  avatar.assign(avatar)
+  avatar.save
+end

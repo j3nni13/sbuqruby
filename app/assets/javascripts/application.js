@@ -16,6 +16,7 @@
 //= require twitter/bootstrap
 //= require underscore
 //= require dropzone
+//= require jquery.Jcrop
 //= require fancybox
 
 $(document).ready(function() {
