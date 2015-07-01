@@ -15,7 +15,8 @@ class PicturesController < ApplicationController
   # GET /pictures/1
   # GET /pictures/1.json
   def show
-    @picture = Picture.find(params[:id])
+    @listing = Listing.find(params[:listing_id])
+    @pictures = @listing.pictures
 
     respond_to do |format|
       format.html # show.html.erb

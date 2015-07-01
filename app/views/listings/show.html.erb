@@ -98,8 +98,7 @@
   <center><h4><%= number_to_currency(@listing.price, :unit => "$") %><h4></center>
 
 <Br>
-  Favourited <%= @listing.favourites.count %> time(s).
-<br>
+  <% if user_signed_in? %>
 <%- unless current_user.favourite_listings.exists?(id: @listing.id) -%>
 <%= link_to favourite_listings_path(listing_id: @listing), method: :post do %>
 <%= @listing.favourites.count %> (Add to Favourites)
@@ -109,6 +108,10 @@
 <%= @listing.favourites.count %> (Remove from Favourites)
 <% end %>
 <%- end -%>
+  <% else %>
+  Favourited <%= @listing.favourites.count %> time(s).
+<br>
+  <% end %>
 
 <div class="row-fluid">
   <p><h4 class="text-center">Location</h4>

@@ -2,7 +2,7 @@
     <% message = receipt.message %>
     <div class="media">
       <div class="media-left">
-          <%= image_tag(message.sender.avatar, :width => "100px")  %>
+          <%= image_tag(message.sender.avatar(:square), :width => "100px")  %>
       </div>
       <div class="media-body">
           <b><%= message.subject %></b><br>

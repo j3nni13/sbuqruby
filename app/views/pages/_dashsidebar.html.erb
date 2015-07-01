@@ -1,5 +1,5 @@
                     <li class="sidebar-brand">
-                    <li><center><%= image_tag(@current_user.avatar(:thumb))  %>
+                    <li><center><%= image_tag(@current_user.avatar(:square), :width => '150px')  %>
                     <li><h4>Welcome <%= @current_user.firstname %></h4></li></center>
                 <li class="active">
                    <%= link_to "Dashboard", dashboard_path %>

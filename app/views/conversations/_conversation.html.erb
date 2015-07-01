@@ -1,6 +1,6 @@
 <div class="media">
   <div class="media-left">
-<%= image_tag(conversation.originator.avatar, :width => "100px")  %>
+<%= image_tag(conversation.originator.avatar(:square), :width => "100px")  %>
   </div>
   <div class="media-body">
       <b><%= conversation.subject %></b><br>

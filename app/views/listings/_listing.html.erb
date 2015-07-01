@@ -11,15 +11,22 @@
 
 	- <%= listing.city %>, <%= listing.province %>
 </p>
-<%- unless current_user.favourite_listings.exists?(id: listing.id) -%>
-<%= link_to favourite_listings_path(listing_id: listing), method: :post do %>
-<%= listing.favourites.count %> (Add to Favourites)
-<% end %>
-<%- else -%>
-<%= link_to favourite_listing_path(listing), method: :delete do %>
-<%= listing.favourites.count %> (Remove from Favourites)
-<% end %>
-<%- end -%>
+	<% if user_signed_in? %>
+		<%- unless current_user.favourite_listings.exists?(id: listing.id) -%>
+		<%= link_to favourite_listings_path(listing_id: listing), method: :post do %>
+		<%= listing.favourites.count %> (Add to Favourites)
+		<% end %>
+		<%- else -%>
+		<%= link_to favourite_listing_path(listing), method: :delete do %>
+		<%= listing.favourites.count %> (Remove from Favourites)
+		<% end %>
+		<%- end -%>
+	<% else %>
+	Favourited <%= listing.favourites.count %> time(s).
+	<% end %>
+
+
+
 
 		<!-- PRICE: <p><%= number_to_currency(listing.price, :unit => "$") %></p>
 	-->	

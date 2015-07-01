@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
-  before_action :authenticate_user!, :set_listing, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, :set_listing, only: [:edit, :update, :destroy]
+  before_action :set_listing, only: [:show]
   # GET /listings
   # GET /listings.json
 
@@ -28,6 +29,7 @@ class ListingsController < ApplicationController
   # GET /listings/1.json
   def show
     @listings = Listing.all
+  
   end
 
   # GET /listings/new
