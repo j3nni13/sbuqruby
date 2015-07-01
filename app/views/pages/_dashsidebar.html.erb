@@ -4,7 +4,9 @@
                 <li class="active">
                    <%= link_to "Dashboard", dashboard_path %>
                 </li>
-                <li><%= link_to "Inbox", mailbox_inbox_path %></li>
+                <li><%= link_to(mailbox_inbox_path) do %>
+        Inbox (<%=unread_messages_count%>)
+        <% end %></li>
                 <li>
                    <%= link_to "User Settings", edit_user_registration_path %>
                 </li>

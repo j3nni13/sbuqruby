@@ -19,7 +19,9 @@
       <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
      <li><%= link_to "Hello, #{current_user.firstname}", edit_user_registration_path %></li>
-      <li><%= link_to "Inbox", mailbox_inbox_path %></li>
+      <li><%= link_to(mailbox_inbox_path) do %>
+        Inbox (<%=unread_messages_count%>)
+        <% end %></li>
       <li><%= link_to "Dashboard", dashboard_path, :class => "navbar-custom" %></li>
       <li><button type="button" class="btn btn-default navbar-btn"><%= link_to "Logout", destroy_user_session_path, method: :delete %></button></li>
       
