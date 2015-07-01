@@ -1,5 +1,4 @@
 <br>
-
 <%= simple_form_for(@listing, html: { :class => "form-listings", :multipart => true }) do |f| %>
   <%= f.error_notification %>
 
@@ -20,8 +19,8 @@
 
     <p>
 Venue type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
-<%= f.select :venuetype_ids, Venuetype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %>
-</p>
+ <%= f.select :venuetype_ids, Venuetype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %></p>
+
 
     <p>
 Event type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]

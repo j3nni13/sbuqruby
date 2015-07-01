@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
+//= require jquery.turbolinks
 //= require gmaps/google
 //= require twitter/bootstrap
 //= require underscore
@@ -39,3 +41,4 @@ $(document).ready(function() {
 });
 
 //= require_tree .
+
