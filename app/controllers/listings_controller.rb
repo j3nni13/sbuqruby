@@ -74,7 +74,7 @@ class ListingsController < ApplicationController
   # PATCH/PUT /listings/1
   # PATCH/PUT /listings/1.json
   def update
-    @listing = Listing.find(params[:id])
+    @listing = Listing.friendly.find(params[:id])
     authorize! :manage, @listing
 
     respond_to do |format|
