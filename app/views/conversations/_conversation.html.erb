@@ -1,13 +1,13 @@
 <div class="media">
   <div class="media-left">
-    <% if conversation.originator == null %>
+    <% if conversation.originator == nil %>
     <% else %>
 <%= image_tag(conversation.originator.avatar(:square), :width => "100px")  %>
     <% end %>
   </div>
   <div class="media-body">
       <b><%= conversation.subject %></b><br>
-      <% if conversation.originator == null %>
+      <% if conversation.originator == nil %>
          <small><b>From: </b>Deleted User</small><br>
       <% else %>
       <small><b>From: </b><%= conversation.originator.fullname %></small><br>
