@@ -1,6 +1,8 @@
 <div class="col-md-6">
 <div class="thumbnail">
-  <%= link_to image_tag(listing.pictures.first.photo.url, :width => '100%'), listing_path(listing) %>
+	<div class="imgresults">
+  <%= link_to image_tag(listing.pictures.first.photo.url, :width => '100%' ), listing_path(listing) %>
+</div>
 
 <div class="caption">
 		<p><h5><%= link_to listing.title, listing_path(listing) %></h5></p>
