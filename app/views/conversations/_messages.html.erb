@@ -2,11 +2,18 @@
     <% message = receipt.message %>
     <div class="media">
       <div class="media-left">
+        <% if message.sender == null %>
+        <% else %>
           <%= image_tag(message.sender.avatar(:square), :width => "100px")  %>
+          <% end %>
       </div>
       <div class="media-body">
           <b><%= message.subject %></b><br>
+          <% if message.sender == null %>
+          <small><b>From: </b>Deleted User</small><br>
+          <% else %>
           <small><b>From: </b><%= message.sender.fullname %></small><br>
+          <% end %>
           <small><b>Date: </b><%=  message.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
           <p><br>
         <%= message.body %></p>

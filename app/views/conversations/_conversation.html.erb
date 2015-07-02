@@ -1,10 +1,17 @@
 <div class="media">
   <div class="media-left">
+    <% if conversation.originator == null %>
+    <% else %>
 <%= image_tag(conversation.originator.avatar(:square), :width => "100px")  %>
+    <% end %>
   </div>
   <div class="media-body">
       <b><%= conversation.subject %></b><br>
+      <% if conversation.originator == null %>
+         <small><b>From: </b>Deleted User</small><br>
+      <% else %>
       <small><b>From: </b><%= conversation.originator.fullname %></small><br>
+      <% end %>
       <small><b>Date: </b><%=  conversation.messages.last.created_at.strftime("%A, %b %d, %Y at %I:%M%p") %></small>
     <p><br>
     <%= truncate conversation.messages.last.body, length: 145 %>
