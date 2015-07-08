@@ -17,6 +17,6 @@ before_action :set_listing
   private
   
   def set_listing
-    @listing = Listing.find(params[:listing_id] || params[:id])
+    @listing = Listing.friendly.find(params[:listing_id] || params[:id])
   end
 end

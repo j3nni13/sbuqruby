@@ -6,7 +6,7 @@ belongs_to :listing, polymorphic: true
 		medium: '200x200>',
 		thumb: '100x100>'
 		}, 
-		:default_url => "img/missing.png" 
+		:default_url => "img/missing.jpg" 
 
 	validates_attachment_content_type :photo, 
 	content_type:  /^image\/(png|gif|jpeg)/,
