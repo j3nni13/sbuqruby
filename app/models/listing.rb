@@ -62,6 +62,10 @@ end
     		label "Phone number"
     	end
 
+      configure :pnotes do
+        label "Permission Notes"
+      end
+
     	exclude_fields :eventtype, :venuetype, :amenities, :parking, :food, :alcohol, :audiovisual, :reception, :image
     end	
    end

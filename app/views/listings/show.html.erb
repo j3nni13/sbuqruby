@@ -95,7 +95,7 @@
 </div>
  
 <p><br><h4 class="text-center">Price per Event</h4>
-  <center><h4><%= number_to_currency(@listing.price, :unit => "$") %><h4></center>
+  <center><h4>Starting at: <%= number_to_currency(@listing.price, :unit => "$") %><h4></center>
 
 <Br>
   <% if user_signed_in? %>
