@@ -1,8 +1,6 @@
 <br>
 <%= simple_form_for(@listing, html: { :class => "form-listings", :multipart => true }) do |f| %>
   <%= f.error_notification %>
-    <%= link_to "View Listing", listing_path(@listing), class: "btn btn-primary btn-block" %>
-    <br>
     <h4 class="text-center">Contact Information</h4>
      <%= f.input :contactname, required: false, label: false, placeholder: "Name of Contact", input_html: {class: "form-control"} %>
      <%= f.input :contacttitle, required: false, label: false, placeholder: "Title of Contact", input_html: {class: "form-control"} %>

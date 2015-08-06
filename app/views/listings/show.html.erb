@@ -115,14 +115,14 @@
 <p><br><h4 class="text-center">Price per Event</h4>
   <center><h4>Starting at: <%= number_to_currency(@listing.price, :unit => "$") %><h4></center>
 
-<Br>
+<Br><center>
   <% if user_signed_in? %>
 <%- unless current_user.favourite_listings.exists?(id: @listing.id) -%>
-<%= link_to favourite_listings_path(listing_id: @listing), method: :post do %>
+<%= link_to favourite_listings_path(listing_id: @listing), method: :post, class: "btn btn-large btn-info" do %>
 <%= @listing.favourites.count %> (Add to Favourites)
 <% end %>
 <%- else -%>
-<%= link_to favourite_listing_path(@listing), method: :delete do %>
+<%= link_to favourite_listing_path(@listing), method: :delete, class: "btn btn-large btn-info" do %>
 <%= @listing.favourites.count %> (Remove from Favourites)
 <% end %>
 <%- end -%>
@@ -130,7 +130,7 @@
   Favourited <%= @listing.favourites.count %> time(s).
 <br>
   <% end %>
-
+</center>
 <div class="row-fluid">
   <p><h4 class="text-center">Location</h4>
 <div id="map-canvas" style="width: 100%; height: 400px;"></div>
