@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702160130) do
+ActiveRecord::Schema.define(version: 20150805184759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -165,6 +165,8 @@ ActiveRecord::Schema.define(version: 20150702160130) do
     t.float    "latitude"
     t.float    "longitude"
     t.string   "slug"
+    t.boolean  "permission"
+    t.text     "pnotes"
   end
 
   add_index "listings", ["slug"], name: "index_listings_on_slug", unique: true, using: :btree
