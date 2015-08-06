@@ -61,12 +61,11 @@ end
     	configure :phonenumber do
     		label "Phone number"
     	end
-
       configure :pnotes do
         label "Permission Notes"
       end
 
-    	exclude_fields :eventtype, :venuetype, :amenities, :parking, :food, :alcohol, :audiovisual, :reception, :image
+    	exclude_fields :eventtype, :venuetype, :parking, :food, :alcohol, :audiovisual, :reception, :image, :amenities
     end	
    end
 end

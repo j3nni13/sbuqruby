@@ -2,6 +2,7 @@ RailsAdmin.config do |config|
 
 config.included_models = [ "User", "Listing", "Eventtype", "Venuetype", "Parking", "Amenity", "Food", "Reception", "Alcohol" ]
 
+
   ### Popular gems integration
 
   ## == Devise ==

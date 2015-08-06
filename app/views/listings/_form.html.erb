@@ -1,7 +1,8 @@
 <br>
 <%= simple_form_for(@listing, html: { :class => "form-listings", :multipart => true }) do |f| %>
   <%= f.error_notification %>
-
+    <%= link_to "View Listing", listing_path(@listing), class: "btn btn-primary btn-block" %>
+    <br>
     <h4 class="text-center">Contact Information</h4>
      <%= f.input :contactname, required: false, label: false, placeholder: "Name of Contact", input_html: {class: "form-control"} %>
      <%= f.input :contacttitle, required: false, label: false, placeholder: "Title of Contact", input_html: {class: "form-control"} %>
@@ -32,7 +33,7 @@ Event type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
     <%= f.input :price, required: true, label: false, placeholder: "Price", input_html: {class: "form-control"} %></p>
 
   <br><h4 class="text-center">Pictures</h4>
-  <%= file_field_tag "photos[]", type: :file, required: true, multipart: true, class: 'dropzone' %>
+  <%= file_field_tag "photos[]", type: :file, required: false, multipart: true, class: 'dropzone' %>
   <br><% @listing.pictures.each do |picture| %>
   <%= link_to(image_tag(picture.photo.url, :width => '20%'), picture.photo.url, :class => 'fancybox-thumb', :rel => 'gallery' ) %>
 <%= link_to "Delete photo", picture, :data => { :confirm => "Are you sure?" }, :method => :delete %>
@@ -87,5 +88,4 @@ Calendar will go here
 -->
 
     <%= f.button :submit, class: "btn btn-primary btn-block" %>
-
 <% end %>
