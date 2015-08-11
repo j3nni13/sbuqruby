@@ -5,9 +5,9 @@
 </div>
 
 <div class="caption">
-		<p><h5><%= link_to truncate(listing.title, :ommision => "...", :length => 30), listing_path(listing) %></p></h5>
+		<p><h5><%= link_to truncate(listing.title, :ommision => "...", :length => 23), listing_path(listing) %> | <%= number_to_currency(listing.price, :unit => "$") %>+</p></h5>
 			<p><% listing.venuetypes[0,2].each do |vt, i| %>
- 	 <%= vt.name %><%= '/' unless vt == listing.venuetypes.second %>
+ 	 <%= vt.name %><%= '/' unless vt == listing.venuetypes.second or vt == listing.venuetypes.last %>
 	<% end %>
 
 	- <%= listing.city %>, <%= listing.province %>

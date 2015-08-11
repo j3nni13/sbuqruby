@@ -1,8 +1,12 @@
 <div class="container" style="width: 250px">
 	<div class="infowindow"><%= link_to listing_path(@listing) do %>
 		<br>   <%= image_tag(@listing.pictures.first.photo.url, :width => '100%') %><% end %>
-           <h1><%= @listing.title %></h1>
-           <br><%= @listing.address %>
+           <h1><p><h5><%= link_to @listing.title, listing_path(@listing) %> | <%= number_to_currency(@listing.price, :unit => "$") %>+</p></h5></h1>
+<p><% @listing.venuetypes[0,2].each do |vt, i| %>
+ 	 <%= vt.name %><%= '/' unless vt == @listing.venuetypes.second or vt == @listing.venuetypes.last %>
+	<% end %>
+
+	- <%= @listing.city %>, <%= @listing.province %>
            <br>
 
 	</div>
