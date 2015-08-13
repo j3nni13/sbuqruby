@@ -13,7 +13,7 @@ class ListingsController < ApplicationController
   def index
     @pictures = Listing.all
     @search = Listing.search(params[:q])
-    @listings = @search.result(distinct: true).page(params[:page]).per(24)
+    @listings = @search.result(distinct: true).page(params[:page]).per(16)
     @hash = Gmaps4rails.build_markers(@listings) do |listing, marker|
     marker.lat listing.latitude
     marker.lng listing.longitude

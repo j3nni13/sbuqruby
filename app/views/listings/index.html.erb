@@ -13,13 +13,22 @@
 <p>No results found matching those search terms.</p>
 <% end %>
 
-</div>
+<div class="search-footer">
+    <%= paginate @listings %>
+    <hr>
+    <p>More venues: 
+      <%= link_to "Hamilton", listings_path(:q => {:city_or_province_or_country_cont => "Hamilton"}) %> 
+      | <%= link_to "Niagara", listings_path(:q => {:city_or_province_or_country_cont => "Niagara"}) %> 
+      | <%= link_to "Mississauga", listings_path(:q => {:city_or_province_or_country_cont => "Mississauga"}) %></p>
+</div> <!-- seach-footer -->
+
+</div> <!-- col-md-7 -->
 <div class="col-md-5" >
 <div style='width: 515px; height:100%; position:fixed; right:0px'>
   <div id="resultsmap" style='width: 100%; height: 100%'></div>
-</div>
-</div>
-</div>
+</div> <!-- col-md-5 -->
+</div> <!-- map style -->
+</div> <!-- container -->
 
 
 

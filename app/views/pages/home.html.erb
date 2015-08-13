@@ -3,7 +3,7 @@
 <div id="myCarousel" class="carousel slide">
   <div class="carousel-inner">
        <div class="carousel-caption">
-          <h1>Search and book memorable venues.</h1>
+          <h1>Search and book event venues.</h1>
           <p>Find the SPACE, b&uuml;q it!</p>
        
      <p><%= render 'listings/search' %></p>
@@ -49,25 +49,25 @@
   <div class="row">
     <div class="col-md-4 text-center">
       <div class="fmodule1">
-        <%= link_to listings_path(:q => {:city_or_province_or_country_cont => "Hamilton"}) do %>
-      <h2>Hamilton Venues</h2>
-      <br>Find a Venue in Hamilton.</br>
+        <%= link_to listings_path(:q => {:city_or_province_or_country_cont => "Toronto"}) do %>
+      <h2>Toronto Venues</h2>
+      <br>View all spaces in Toronto</br>
       <% end %>
     </div>
   </div>
     <div class="col-md-4 text-center">
         <div class="fmodule2">
-      <%= link_to listings_path(:q => {:eventtypes_name_cont => "party"}) do %>
-      <h2>Party Spaces</h2>
-      <br>Find a cool space for your party.</br>
+      <%= link_to listings_path(:q => {:eventtypes_name_cont => "wedding"}) do %>
+      <h2>Wedding Venues</h2>
+      <br>Backdrops for the big day</br>
       <% end %>
     </div>
     </div>
     <div class="col-md-4 text-center">
         <div class="fmodule3">
       <%= link_to listings_path(:q => {:eventtypes_name_cont => "conference"}) do %>
-      <h2>Conference Rooms</h2>
-      <br>Find your next meeting space.</br>
+      <h2>Corporate Events</h2>
+      <br>Venues to impress</br>
       <% end %>
 
     </div>

@@ -18,11 +18,19 @@ Advanced Search
     <%= f.collection_select :venuetypes_id_eq, Venuetype.order(:name), :id, :name, { :prompt => "Venue type" }, {class: "form-control"} %>
         <%= f.search_field :price_gteq, label: false, maxlength: 10,  placeholder: "Budget", class: "form-control" %>
     
-    <br><h3>Amenities</h3>    
-    <% Amenity.all.uniq.each do |amenity| %>
-    <br><%= check_box_tag('q[amenities_name_cont_any][]', amenity.name) %>
-    <%= amenity.name %>
+    <br><h3>Amenities</h3>
+     <br> <table> 
+      <% Amenity.all.in_groups_of(4, false) do |amenity_test| %>
+      <tr>
+    <% amenity_test.each do |amenity| %>
+      <td>
+    <%= check_box_tag('q[amenities_name_cont_any][]', amenity.name) %>
+    <%= amenity.name %> &nbsp;&nbsp;&nbsp;
+  </td>
+<% end %>
+</tr>
   <% end %> 
+</table>
 
 </div>
        

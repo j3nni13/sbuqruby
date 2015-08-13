@@ -303,6 +303,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  kaminari
   mail_form
   mailboxer!
   paperclip

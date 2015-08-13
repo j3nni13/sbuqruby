@@ -17,13 +17,39 @@
     <%= f.input :postalcode, required: true, label: false, placeholder: "Postal Code", input_html: {class: "form-control"} %>
 
     <p>
-Venue type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
- <%= f.select :venuetype_ids, Venuetype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %></p>
+      <p><h4 class="text-center"> Venue Type</h4></p>
+<table>
+  <% Venuetype.all.in_groups_of(3, false) do |venuetype_test| %>
+      <tr>
+    <%= hidden_field_tag "listing[venuetype_ids][]", nil %>
+<% venuetype_test.each do |venuetype| %>
+<td>
+  <%= check_box_tag "listing[venuetype_ids][]", venuetype.id, @listing.venuetype_ids.include?(venuetype.id), id: dom_id(venuetype) %>
+  <%= label_tag dom_id(venuetype), venuetype.name %>&nbsp;&nbsp;&nbsp;<br>
+</td>
+<% end %> 
+</tr>
+<% end %>
+</table>
+<Br></p>
 
-
-    <p>
-Event type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
- <%= f.select :eventtype_ids, Eventtype.all.collect {|x| [x.name, x.id]}, {}, :multiple => true, :class => 'form-control' %></p>
+   <p>
+      <p><h4 class="text-center"> Event Type</h4></p>
+<table>
+  <% Eventtype.all.in_groups_of(3, false) do |eventtype_test| %>
+      <tr>
+    <%= hidden_field_tag "listing[eventtype_ids][]", nil %>
+<% eventtype_test.each do |eventtype| %>
+<td>
+  <%= check_box_tag "listing[eventtype_ids][]", eventtype.id, @listing.eventtype_ids.include?(eventtype.id), id: dom_id(eventtype) %>
+  <%= label_tag dom_id(eventtype), eventtype.name %>&nbsp;&nbsp;&nbsp;<br>
+</td>
+<% end %> 
+</tr>
+<% end %>
+</table>
+<Br>
+    
 
 
 	<%= f.input :mincapacity, required: true, label: false, placeholder: "Minimum Capacity", input_html: {class: "form-control"} %>
@@ -51,11 +77,19 @@ Event type(s): [Hint: Hold ctrl or cmd (Mac) to select multiple]
 <Br>
 
 <p><h4 class="text-center"> Amenities</h4></p>
+<table>
+  <% Amenity.all.in_groups_of(3, false) do |amenity_test| %>
+      <tr>
     <%= hidden_field_tag "listing[amenity_ids][]", nil %>
-<% Amenity.all.each do |amenity| %>
+<% amenity_test.each do |amenity| %>
+<td>
   <%= check_box_tag "listing[amenity_ids][]", amenity.id, @listing.amenity_ids.include?(amenity.id), id: dom_id(amenity) %>
-  <%= label_tag dom_id(amenity), amenity.name %><br>
+  <%= label_tag dom_id(amenity), amenity.name %>&nbsp;&nbsp;&nbsp;<br>
+</td>
 <% end %> 
+</tr>
+<% end %>
+</table>
 <Br>
 
 <p><h4 class="text-center"> Food</h4></p>

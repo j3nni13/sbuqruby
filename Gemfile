@@ -48,6 +48,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'friendly_id', '~> 5.1.0'
   #Search
   gem 'ransack'
+  gem 'kaminari' #pagination
   #Development
   gem 'underscore-rails'
   gem 'aws-sdk', '<2.0'
